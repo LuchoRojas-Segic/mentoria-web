@@ -1,3 +1,3 @@
 <?php   
 
-echo "Este es un archivo básico de BD.";
+echo "Este es un archivo básico de BD";
