@@ -21,7 +21,7 @@ $stmt = $db->prepare($sql);
 $full_name = 'Juan Perez';
 $email = 'juan.perez@segic.cl';
 $user_name = 'juan.perez';
-$password = 'juan123'
+$password = 'juan123';
 
 $stmt ->bindParam(':full_name',$full_name);
 $stmt ->bindParam(':email',$email);
