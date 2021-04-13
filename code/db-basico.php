@@ -11,7 +11,7 @@ try{
        echo $e->getMessage();
 }
 
-$sql="INSERT INTO Users (full_name, email, user_name, password)
+$sql="INSERT INTO users (full_name, email, user_name, password)
       VALUES(:full_name, :email, :user_name, :password)";
 
 //statemest
