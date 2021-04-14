@@ -87,6 +87,6 @@ $stmt->execute();
 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 foreach($users as $user){
-   echo $user['id'];
-   echo $user['full_name'];
+   echo $user['id']."<br>";
+   echo $user['full_name']."<br>";
 }
