@@ -78,7 +78,3 @@ foreach($users as $user){
 
    $stmt -> execute();
 }
-
-
-
-
