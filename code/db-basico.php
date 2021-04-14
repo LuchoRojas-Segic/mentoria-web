@@ -45,7 +45,7 @@ $stmt->execute();*/
 //Insert masivo
 
 $users = [
-   [_'name'=>'Miguel Perez', 
+   [ 'name'=>'Miguel Perez', 
      'email'=>'miguel.perez@segic.cl', 
      'user_name'=>'miguel.perez',
      'password'=>'miguel123'
