@@ -3,7 +3,7 @@
 //echo "Este es el archivo básico DB..";
 $dbname = "registro"; //modicar por valor no valido y comprobar try
 $dbuser = "registro_user";
-$dbpassword = "registro_user1";
+$dbpassword = "registro_user";
 
 try {$dsn = "mysql:host=localhost;dbname=$dbname";
 
