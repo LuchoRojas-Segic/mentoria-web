@@ -45,7 +45,7 @@ $stmt->execute();*/
 
 //Insert masivo
 
-$users = [
+/*$users = [
    [ 'name'=>'Miguel Perez', 
      'email'=>'miguel.perez@segic.cl', 
      'user_name'=>'miguel.perez',
@@ -66,16 +66,27 @@ $sql="INSERT INTO users (full_name, email, user_name, password)
 $stmt = $db->prepare($sql);
 
 foreach($users as $user) {
-   $full_name = $user['name'];
-   $email = $user['email'];
-   $user_name = $user['user_name'];
-   $password = password_hash($user['password'], PASSWORD_DEFAULT);
+   $full_name = ;
+   $email = ;
+   $user_name = ;
+   $password = ;
    
 
-   $stmt->bindParam(':full_name',$full_name);
-   $stmt->bindParam(':email',$email);
-   $stmt->bindParam(':user_name',$user_name);
-   $stmt->bindParam(':password',$password);
+   $stmt->bindParam(':full_name',$user['name'];
+   $stmt->bindParam(':email',$user['email']);
+   $stmt->bindParam(':user_name',$user['user_name']);
+   $stmt->bindParam(':password',password_hash($user['password'], PASSWORD_DEFAULT));
 
    $stmt->execute();
+}*/
+
+// queryning data
+
+$stmt = $db->prepare("SELECT * FROM users");
+$stmt->execute();
+$users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+foreach($users as $user){
+   echo $user['id'];
+   echo $user['full_name'];
 }
