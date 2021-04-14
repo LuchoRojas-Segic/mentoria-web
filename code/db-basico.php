@@ -94,8 +94,8 @@ echo '<table>
 
 foreach($users as $user){
    echo '<tr>
-            <td>'.$user['id'].'</td>;
-            <td>'.$user['full_name'].'</td>;
+            <td>'.$user['id'].'</td>
+            <td>'.$user['full_name'].'</td>
          </tr>';
 }
 echo '</table>';
