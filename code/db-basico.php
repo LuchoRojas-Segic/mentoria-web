@@ -64,7 +64,7 @@ $sql="INSERT INTO users (full_name, email, user_name, password)
 
 $stmt = $db->prepare($sql);
 
-foreach($users as $user) {
+/*foreach($users as $user) {
    $full_name = $user['name'];
    $email = $user['email'];
    $user_name = $user['user_name'];
@@ -77,4 +77,4 @@ foreach($users as $user) {
    $stmt->bindParam(':password',$password);
 
    $stmt->execute();
-}
+}*/
