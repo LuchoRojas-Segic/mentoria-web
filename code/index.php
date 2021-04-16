@@ -23,10 +23,12 @@
 
 		 $stmt = $db->prepare($sql);
 
+		$pass = password_hash($pass, PASSWORD_DEFAULT);
+
 		$stmt->bindParam(':full_name',$name);
 		$stmt->bindParam(':email',$email);
 		$stmt->bindParam(':user_name',$username);
-		$stmt->bindParam(':password',password_hash($pass, PASSWORD_DEFAULT));
+		$stmt->bindParam(':password',$pass);
 
 		$stmt->execute();
 		echo "Registro realizado";
