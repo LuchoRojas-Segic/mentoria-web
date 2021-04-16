@@ -6,7 +6,6 @@ require "util/db.php";
 
 $db = connectDB();
 
-echo "Hola Mundo";
 ?>
 
 <!DOCTYPE html>
