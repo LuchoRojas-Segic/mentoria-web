@@ -1,47 +1,48 @@
 <?php
+	//echo "Hola Mundo";
+	require "util/db.php";
 
-//Código PHP
+	if (isset($_POST["sing-up-button"])){
+		// se envio form
+		$db=connectDB();
 
-require "util/db.php";
+		//print_r($_POST);
 
-if (isset($_POST["sing-up-button"]))
-{
-	//Se envio el formulario
-	$db = connectDB();
-
-	//print_r($_POST);
-
-	$name = $_POST["name"];
-	$email = $_POST["email"];
-	$username = $_POST["username"];
-	$pass = $_POST["pass"];
-	$repeatPass = $_POST["repeat-pass"];
-	$remenberMe = $_POST["remenber-me"];
-
-	$sql="INSERT INTO users 
+		$name = $_POST["name"];
+		$email= $_POST["email"];
+		$username= $_POST["username"];
+		$pass= $_POST["pass"];
+		$repeatPass= $_POST["repeat-pass"];
+		$rememberMe= $_POST["remember-me"];
+		
+		//preparar consulta
+		$sql = "INSERT INTO users
 				(full_name, email, user_name, password)
-			VALUES(:full_name, :email, :user_name, :password)";	
+				VALUES
+				(:full_name, :email, :user_name, :password);";
 
-$stmt->bindParam(':full_name',$name);
-$stmt->bindParam(':email',$email);
-$stmt->bindParam(':user_name',$username);
-$stmt->bindParam(':password',password_hash($pass, PASSWORD_DEFAULT));
+		 $stmt = $db->prepare($sql);
 
-$stmt->execute();
-echo "Registro realizado con exito";
+		$stmt->bindParam(':full_name',$name);
+		$stmt->bindParam(':email',$email);
+		$stmt->bindParam(':user_name',$username);
+		$stmt->bindParam(':password',password_hash($pass, PASSWORD_DEFAULT));
 
-} else {
-	echo "No se ha enviado información";
-}
+		$stmt->execute();
+		echo "Registro realizado";
 
 
+
+	}else{
+		echo "No se ha enviado pagina por boton";
+	}
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V13</title>
+	<title>Mentoria Web</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
