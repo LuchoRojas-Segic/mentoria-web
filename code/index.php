@@ -2,7 +2,12 @@
 
 //Código PHP
 
+require "util/db.php";
+
+$db = connectDB();
+
 echo "Hola Mundo";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
