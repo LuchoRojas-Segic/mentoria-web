@@ -4,9 +4,37 @@
 
 require "util/db.php";
 
-//$db = connectDB()
+if (isset($_POST['sing-up-button']))
+{
+	//Se envio el formulario
+	$db = connectDB();
 
-print_r($_POST);
+	//print_r($_POST);
+
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$username = $_POST['username'];
+	$pass = $_POST['pass'];
+	$repeatPass = $_POST['repeat-pass'];
+	$remenberMe = $_POST['remenber-me'];
+
+	$sql="INSERT INTO users 
+				(full_name, email, user_name, password)
+			VALUES(:full_name, :email, :user_name, :password)";	
+
+$stmt->bindParam(':full_name',$name);
+$stmt->bindParam(':email',$email);
+$stmt->bindParam(':user_name',$username);
+$stmt->bindParam(':password',password_hash($pass, PASSWORD_DEFAULT));
+
+$stmt->execute();
+echo "Registro realizado con exito";
+
+} else {
+	echo "No se ha enviado información";
+}
+
+
 
 ?>
 
@@ -28,7 +56,8 @@ print_r($_POST);
 	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
+<!--=====
+==========================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
