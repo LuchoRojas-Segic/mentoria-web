@@ -4,19 +4,19 @@
 
 require "util/db.php";
 
-if (isset($_POST['sing-up-button']))
+if (isset($_POST["sing-up-button"]))
 {
 	//Se envio el formulario
 	$db = connectDB();
 
 	//print_r($_POST);
 
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$username = $_POST['username'];
-	$pass = $_POST['pass'];
-	$repeatPass = $_POST['repeat-pass'];
-	$remenberMe = $_POST['remenber-me'];
+	$name = $_POST["name"];
+	$email = $_POST["email"];
+	$username = $_POST["username"];
+	$pass = $_POST["pass"];
+	$repeatPass = $_POST["repeat-pass"];
+	$remenberMe = $_POST["remenber-me"];
 
 	$sql="INSERT INTO users 
 				(full_name, email, user_name, password)
