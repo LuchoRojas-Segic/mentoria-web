@@ -1,7 +1,7 @@
 <?php
 	$valido=null;
 
-	if (isset($_POST["sing-up-button"])){
+	if (isset($_POST['sing-up-button'])){
 		$dbname = "registro";
 		$dbuser = "registro-user";
 		$dbpassword = "registro-user";
