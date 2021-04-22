@@ -3,7 +3,7 @@
 	require "util/db.php";
 
 	$valido = 0;
-	if (isset($_POST['sing-up-button'])){
+	if (isset($_POST['sing-in-button'])){
 		// se envio form
 		$db=connectDB();
 
