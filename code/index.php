@@ -2,6 +2,7 @@
 	//echo "Hola Mundo";
 	require "util/db.php";
 
+	$valido = 0;
 	if (isset($_POST["sing-up-button"])){
 		// se envio form
 		$db=connectDB();
@@ -32,16 +33,18 @@
 
 		$stmt->execute();
 
-		echo "Registro realizado con exito";
-		//$message "Registro realizado con exito";
+		//echo "Registro realizado con exito";
+		$message = "Registro realizado con exito";
+		$valido=1;
 
 		
 
 	}else{
 		echo "No se ha enviado pagina por boton";
+		
 	}
 
-	$valido=1;
+	
 
 ?>
 
@@ -95,7 +98,9 @@
 					</span>
 
 					<?php if($valido == 1): ?>
-						<p class="msg-form">Este es un texto controlado desde PHP </p>
+						<p class="msg-form"><?php echo $message; ?></p>
+
+						
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
@@ -118,13 +123,13 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="text" name="pass" placeholder="*****">
+						<input class="input100" type="password" name="pass" placeholder="*****">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
 						<span class="label-input100">Repeat Password</span>
-						<input class="input100" type="text" name="repeat-pass" placeholder="*****">
+						<input class="input100" type="password" name="repeat-pass" placeholder="*****">
 						<span class="focus-input100"></span>
 					</div>
 
