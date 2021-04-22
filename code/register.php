@@ -2,6 +2,7 @@
 	//echo "Hola Mundo";
 	require "util/db.php";
 
+	$valido = 0;
 	if (isset($_POST["sing-up-button"])){
 		// se envio form
 		$db=connectDB();
@@ -14,6 +15,7 @@
 		$pass= $_POST["pass"];
 		$repeatPass= $_POST["repeat-pass"];
 		$rememberMe= $_POST["remember-me"];
+		$pass = password_hash($pass, PASSWORD_DEFAULT);
 		
 		//preparar consulta
 		$sql = "INSERT INTO users
@@ -21,9 +23,7 @@
 				VALUES
 				(:full_name, :email, :user_name, :password);";
 
-		 $stmt = $db->prepare($sql);
-
-		$pass = password_hash($pass, PASSWORD_DEFAULT);
+		$stmt = $db->prepare($sql);		
 
 		$stmt->bindParam(':full_name',$name);
 		$stmt->bindParam(':email',$email);
@@ -33,15 +33,17 @@
 		$stmt->execute();
 
 		//echo "Registro realizado con exito";
-		$message "Registro realizado con exito";
-
+		$message = "Registro realizado con exito";
 		$valido=1;
+
+		
 
 	}else{
 		echo "No se ha enviado pagina por boton";
+		
 	}
 
-
+	
 
 ?>
 
@@ -54,12 +56,7 @@
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" t<style>
-</style>
-	.msg-form{
-		margin:1em;
-		color:#999999;
-	}ype="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
@@ -83,7 +80,7 @@
 <style>
 	.msg-form{
 		margin:1em;
-		color:#999999;
+		color:#66bb6a;
 	}
 </style>
 </head>
@@ -94,13 +91,15 @@
 			<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">				
-				<form class="login100-form validate-form" method="POST" action="index.php">
+				<form class="login100-form validate-form" method="POST" action="register.php">
 					<span class="login100-form-title p-b-59">
 						Sign Up
 					</span>
 
 					<?php if($valido == 1): ?>
-						<p class="msg-form">Este es un texto controlado desde PHP </p>
+						<p class="msg-form"><?php echo $message; ?></p>
+
+						
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
@@ -123,13 +122,13 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="text" name="pass" placeholder="*****">
+						<input class="input100" type="password" name="pass" placeholder="*****">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
 						<span class="label-input100">Repeat Password</span>
-						<input class="input100" type="text" name="repeat-pass" placeholder="*****">
+						<input class="input100" type="password" name="repeat-pass" placeholder="*****">
 						<span class="focus-input100"></span>
 					</div>
 

@@ -1,52 +1,4 @@
-<?php
-	//echo "Hola Mundo";
-	require "util/db.php";
 
-	$valido = 0;
-	if (isset($_POST["sing-up-button"])){
-		// se envio form
-		$db=connectDB();
-
-		//print_r($_POST);
-
-		$name = $_POST["name"];
-		$email= $_POST["email"];
-		$username= $_POST["username"];
-		$pass= $_POST["pass"];
-		$repeatPass= $_POST["repeat-pass"];
-		$rememberMe= $_POST["remember-me"];
-		
-		//preparar consulta
-		$sql = "INSERT INTO users
-				(full_name, email, user_name, password)
-				VALUES
-				(:full_name, :email, :user_name, :password);";
-
-		 $stmt = $db->prepare($sql);
-
-		$pass = password_hash($pass, PASSWORD_DEFAULT);
-
-		$stmt->bindParam(':full_name',$name);
-		$stmt->bindParam(':email',$email);
-		$stmt->bindParam(':user_name',$username);
-		$stmt->bindParam(':password',$pass);
-
-		$stmt->execute();
-
-		//echo "Registro realizado con exito";
-		$message = "Registro realizado con exito";
-		$valido=1;
-
-		
-
-	}else{
-		echo "No se ha enviado pagina por boton";
-		
-	}
-
-	
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,26 +46,8 @@
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">				
 				<form class="login100-form validate-form" method="POST" action="index.php">
 					<span class="login100-form-title p-b-59">
-						Sign Up
+						Sign In
 					</span>
-
-					<?php if($valido == 1): ?>
-						<p class="msg-form"><?php echo $message; ?></p>
-
-						
-					<?php endif; ?>
-
-					<div class="wrap-input100 validate-input" data-validate="Name is required">
-						<span class="label-input100">Full Name</span>
-						<input class="input100" type="text" name="name" placeholder="Name...">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<span class="label-input100">Email</span>
-						<input class="input100" type="text" name="email" placeholder="Email addess...">
-						<span class="focus-input100"></span>
-					</div>						<p class="msg-form">Este es un texto controlado desde PHP </p>
 
 					<div class="wrap-input100 validate-input" data-validate="Username is required">
 						<span class="label-input100">Username</span>
@@ -127,72 +61,7 @@
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
-						<span class="label-input100">Repeat Password</span>
-						<input class="input100" type="password" name="repeat-pass" placeholder="*****">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="flex-m w-full p-b-33">
-						<div class="contact100-form-checkbox">
-							<input class="inp<?php
-	$valido=null;
-
-	if (isset($_POST["sing-up-button"])){
-		$dbname = "registro";
-		$dbuser = "registro-user";
-		$dbpassword = "registro-user";
-
-		$db = new mysqli('localhost',$dbuser, $dbpassword, $dbname);
-		$db ->set_charset('utf8mb4');
-
-		$username = $_POST['username'];
-		$$password = $_POST['pass'];
-
-		$sql = "SELECT * FROM users WHERE user_name=$username";
-		$result = $db->query($sql);
-
-		if ($result){
-			//$row=$result->fetch_row()
-			//echo "El result existe";
-			$row=$result->fetch_assoc();
-			//print_r($row);
-
-			if(password_verify($password, $row['password'])){
-				header("Location: main.php");
-			} else{
-				$valido = false;
-			}
-		} else{
-			$valido = false;
-		}		
-	}
-
-
-
-
-?>ut-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								<span class="txt1">
-									I agree to the
-									<a href="#" class="txt2 hov1">
-										Terms of User
-									</a>
-								</span>
-							</label>
-						</div>
-
-						
-					</div>
-
 					<div class="container-login100-form-btn">
-						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn" name="sing-up-button">
-								Sign Up
-							</button>
-						</div>
-
 						<a href="#" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
 							Sign in
 							<i class="fa fa-long-arrow-right m-l-5"></i>
