@@ -32,8 +32,8 @@
 
 		$stmt->execute();
 
-		//echo "Registro realizado con exito";
-		$message "Registro realizado con exito";
+		echo "Registro realizado con exito";
+		//$message "Registro realizado con exito";
 
 		
 
