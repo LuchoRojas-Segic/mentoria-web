@@ -35,13 +35,13 @@
 		//echo "Registro realizado con exito";
 		$message "Registro realizado con exito";
 
-		
+		$valido=1;
 
 	}else{
 		echo "No se ha enviado pagina por boton";
 	}
 
-	$valido=1;
+
 
 ?>
 
@@ -83,7 +83,7 @@
 <style>
 	.msg-form{
 		margin:1em;
-		color:#66bb6a;
+		color:#999999;
 	}
 </style>
 </head>
@@ -135,43 +135,7 @@
 
 					<div class="flex-m w-full p-b-33">
 						<div class="contact100-form-checkbox">
-							<input class="inp<?php
-	$valido=null;
-
-	if (isset($_POST["sing-up-button"])){
-		$dbname = "registro";
-		$dbuser = "registro-user";
-		$dbpassword = "registro-user";
-
-		$db = new mysqli('localhost',$dbuser, $dbpassword, $dbname);
-		$db ->set_charset('utf8mb4');
-
-		$username = $_POST['username'];
-		$$password = $_POST['pass'];
-
-		$sql = "SELECT * FROM users WHERE user_name=$username";
-		$result = $db->query($sql);
-
-		if ($result){
-			//$row=$result->fetch_row()
-			//echo "El result existe";
-			$row=$result->fetch_assoc();
-			//print_r($row);
-
-			if(password_verify($password, $row['password'])){
-				header("Location: main.php");
-			} else{
-				$valido = false;
-			}
-		} else{
-			$valido = false;
-		}		
-	}
-
-
-
-
-?>ut-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 							<label class="label-checkbox100" for="ckb1">
 								<span class="txt1">
 									I agree to the
