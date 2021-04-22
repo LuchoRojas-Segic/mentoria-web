@@ -21,13 +21,13 @@
 			//echo "El result existe";
 			//Devuelve en el arreglo con el nombre asociativo
 			$row=$result->fetch_assoc();
-			print_r($row);
+			//print_r($row);
 
-			/*if(password_verify($password, $row['password'])){
+			if(password_verify($password, $row['password'])){
 				header("Location: main.php");
 			} else{
 				$valido = false;
-			}*/
+			}
 		} else{
 			$valido = false;
 		}		
