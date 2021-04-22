@@ -12,7 +12,7 @@
 		$username = $_POST['username'];
 		$password = $_POST['pass'];
 
-		$sql = "SELECT * FROM users WHERE user_name=$username";
+		$sql = "SELECT * FROM users WHERE user_name='$username'";
 		$result = $db->query($sql);
 
 		if ($result){
