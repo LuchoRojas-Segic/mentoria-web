@@ -1,4 +1,37 @@
+<?php
+	$valido=null;
 
+	if (isset($_POST["sing-up-button"])){
+		$dbname = "registro";
+		$dbuser = "registro-user";
+		$dbpassword = "registro-user";
+
+		$db = new mysqli('localhost',$dbuser, $dbpassword, $dbname);
+		$db ->set_charset('utf8mb4');
+
+		$username = $_POST['username'];
+		$$password = $_POST['pass'];
+
+		$sql = "SELECT * FROM users WHERE user_name=$username";
+		$result = $db->query($sql);
+
+		if ($result){
+			//$row=$result->fetch_row()
+			echo "El result existe";
+			//$row=$result->fetch_assoc();
+			//print_r($row);
+
+			/*if(password_verify($password, $row['password'])){
+				header("Location: main.php");
+			} else{
+				$valido = false;
+			}*/
+		} else{
+			$valido = false;
+		}		
+	}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +66,7 @@
 <style>
 	.msg-form{
 		margin:1em;
-		color:#66bb6a;
+		color: red;
 	}
 </style>
 </head>
@@ -48,6 +81,10 @@
 					<span class="login100-form-title p-b-59">
 						Sign In
 					</span>
+
+					<?php if($valido === false): ?>
+						<p class="msg-form">Usuario o password incorrecto</p>						
+					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Username is required">
 						<span class="label-input100">Username</span>

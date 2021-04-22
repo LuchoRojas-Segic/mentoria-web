@@ -97,9 +97,7 @@
 					</span>
 
 					<?php if($valido == 1): ?>
-						<p class="msg-form"><?php echo $message; ?></p>
-
-						
+						<p class="msg-form"><?php echo $message; ?></p>						
 					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
