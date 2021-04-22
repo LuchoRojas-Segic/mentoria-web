@@ -10,16 +10,18 @@
 		$db ->set_charset('utf8mb4');
 
 		$username = $_POST['username'];
-		$$password = $_POST['pass'];
+		$password = $_POST['pass'];
 
 		$sql = "SELECT * FROM users WHERE user_name=$username";
 		$result = $db->query($sql);
 
 		if ($result){
-			//$row=$result->fetch_row()
-			echo "El result existe";
-			//$row=$result->fetch_assoc();
-			//print_r($row);
+			//Devuelve en el arreglo con indice
+			///$row=$result->fetch_row()
+			//echo "El result existe";
+			//Devuelve en el arreglo con el nombre asociativo
+			$row=$result->fetch_assoc();
+			print_r($row);
 
 			/*if(password_verify($password, $row['password'])){
 				header("Location: main.php");
