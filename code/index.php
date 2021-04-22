@@ -31,13 +31,18 @@
 		$stmt->bindParam(':password',$pass);
 
 		$stmt->execute();
-		echo "Registro realizado";
 
+		//echo "Registro realizado con exito";
+		$message "Registro realizado con exito";
 
+		$valido=1;
 
 	}else{
 		echo "No se ha enviado pagina por boton";
+		$valido=0;
 	}
+
+
 
 ?>
 
@@ -71,6 +76,12 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<style>
+</style>
+	.msg-form{
+		margin:1em;
+		color:#999999;
+	}
 </head>
 <body style="background-color: #999999;">
 	
@@ -79,10 +90,14 @@
 			<div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">				
-				<form class="login100-form validate-form" method="POST" action="process.php">
+				<form class="login100-form validate-form" method="POST" action="index.php">
 					<span class="login100-form-title p-b-59">
 						Sign Up
 					</span>
+
+					<?php if($valido == 1): ?>
+						<p class="msg-form">Este es un texto controlado desde PHP </p>
+					<?php endif; ?>
 
 					<div class="wrap-input100 validate-input" data-validate="Name is required">
 						<span class="label-input100">Full Name</span>
