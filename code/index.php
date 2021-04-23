@@ -16,16 +16,25 @@
 		$result = $db->query($sql);
 
 		if ($result){
-			//Devuelve en el arreglo con indice
-			///$row=$result->fetch_row()
-			//echo "El result existe";
-			//Devuelve en el arreglo con el nombre asociativo
-			$row=$result->fetch_assoc();
-			//print_r($row);
+			if ($row=$result->fetch_assoc()){
+				//Devuelve en el arreglo con indice
+				///$row=$result->fetch_row()
+				//echo "El result existe";
+				//Devuelve en el arreglo con el nombre asociativo
+				//$row=$result->fetch_assoc();
+				//print_r($row);
 
-			if(password_verify($password, $row['password'])){
-				header("Location: main.php");
-			} else{
+				if(password_verify($password, $row['password'])){
+					//Activamos inicio de sesiones
+					session_start();
+					//en array se puede guardar cualquier cosa
+					$_SESSION['nombre'] = $row['full_name'];
+
+					header("Location: main.php");
+				} else{
+					$valido = false;
+				}
+			}else {
 				$valido = false;
 			}
 		} else{
