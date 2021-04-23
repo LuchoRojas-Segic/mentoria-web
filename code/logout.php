@@ -4,4 +4,4 @@ session_start();
 
 session_destroy();
 
-echo "Sesión destruida";
+header("Location: index.php");
