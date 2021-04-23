@@ -3,6 +3,6 @@
 session_start();
 
 if(isset($_SESSION['nombre'])){
-    header("Locatio: index.php");
+    header("Location: index.php");
 }
 echo "Hola ".$_SESSION['nombre'];
