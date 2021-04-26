@@ -5,7 +5,7 @@
     if(!isset($_SESSION['nombre'])){
         header("Location: index.php");
     }
-    //echo "Hola ".$_SESSION['nombre'];
+    echo "Hola ".$_SESSION['nombre'];
     require "util/db.php";
     $db = connectDB();
 
