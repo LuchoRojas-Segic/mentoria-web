@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 
-    <title>List of User</title>
+    <title>Lista de Usuarios</title>
    
   </head>
   <body class="d-flex flex-column h-100">
@@ -27,7 +27,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="create.html">Create</a>
                     </li>
                     <li class="nav-item">
@@ -46,11 +46,11 @@
         
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <h1>Create New User</h1>
+            <h1>Edit User</h1>
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" value="Nama saya Pisyek" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -62,7 +62,7 @@
         <div class="container pb-5">
             <hr>
             <span class="text-muted">
-                    Copyright &copy; 2019 | <a href="https://pisyek.com">Pisyek.com</a>
+                    Copyright &copy; 2021 | <a href="https://pisyek.com">Pisyek.com</a>
             </span>
         </div>
     </footer>
