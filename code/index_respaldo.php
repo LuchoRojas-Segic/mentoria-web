@@ -1,29 +1,3 @@
-<?php
-
-    session_start();
-
-    require "util/db.php";
-    $db = connectDB();
-
-    $sql = "SELECT * FROM users";
-    //statement
-
-    $stmt = $db->prepare($sql);
-    $stmt -> execute();
-    $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
-    //print_r($users);
-
-    function getFirstName($name) {
-        return implode(' ', array_slice(explode(' ', $name), 0, -1));
-    }    
-
-    function getLastName($name) {
-        return array_slice(explode(' ', $name), -1)[0];
-    }    
-    
-
-?>
-
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -50,7 +24,7 @@
     
             <div class="collapse navbar-collapse" id="navbarsExample09">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
@@ -72,26 +46,15 @@
         
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <h1>Lista de Usuarios</h1>
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Action</th>
-                    </tr>
-                </thead>
-
-                <?php foreach ($users as $user): ?>
-                    <tr>                 
-                        <td><?= $firstName = getFirstName($user['full_name']) ?></td>
-                        <td><?= $lastName = getLastName($user['full_name']) ?></td>              
-                    </tr>
-                <?php endforeach; ?>
-
-
-            </table>
+            <h1>Edit User</h1>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" value="Nama saya Pisyek" placeholder="Enter name">
+                    <small class="form-text text-muted">Help message here.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
     </main>
       
