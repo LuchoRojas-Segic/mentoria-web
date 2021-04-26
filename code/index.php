@@ -66,8 +66,8 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>
-                        <a href="view.html"><button class="btn btn-primary btn-sm">View</button></a>
-                        <a href="edit.html"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
+                        <a href="view.php"><button class="btn btn-primary btn-sm">View</button></a>
+                        <a href="edit.php"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
                         <button class="btn btn-sm">Delete</button>
                     </td>
                     </tr>
@@ -76,8 +76,8 @@
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>
-                        <a href="view.html"><button class="btn btn-primary btn-sm">View</button></a>
-                        <a href="edit.html"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
+                        <a href="view.php"><button class="btn btn-primary btn-sm">View</button></a>
+                        <a href="edit.php"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
                         <button class="btn btn-sm">Delete</button>
                     </td>
                     </tr>
@@ -86,8 +86,8 @@
                     <td>Larry</td>
                     <td>the Bird</td>
                     <td>
-                        <a href="view.html"><button class="btn btn-primary btn-sm">View</button></a>
-                        <a href="edit.html"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
+                        <a href="view.php"><button class="btn btn-primary btn-sm">View</button></a>
+                        <a href="edit.php"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
                         <button class="btn btn-sm">Delete</button>
                     </td>
                     </tr>
