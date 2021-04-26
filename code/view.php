@@ -1,3 +1,22 @@
+<?php
+	require "util/db.php";
+
+	$valido = 0;
+	if (isset($_POST['View'])){
+
+        $db = connectDB();
+    
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM users WHERE id = :id";
+        //statement
+    
+        $stmt = $db->prepare($sql);
+        $stmt -> execute();
+        $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+        //print_r($users);	
+	}	
+
+?>
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -47,8 +66,13 @@
     <main role="main" class="flex-shrink-0">
         <div class="container">
             <h1>Ver detalles del Usuario</h1>
-            <p>Name: Pisyek</p>
-            <p>Email: pisyek@gmail.com</p>
+                
+                <?php foreach ($users as $user): ?>
+
+                    <p>Name:<?= $user['full_name'] ?></p>
+                    <p>Email: <?= $user['email'] ?></p>                
+                <?php endforeach; ?>
+
         </div>
     </main>
       
