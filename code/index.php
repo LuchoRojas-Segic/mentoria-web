@@ -85,8 +85,15 @@
 
                 <?php foreach ($users as $user): ?>
                     <tr>                 
+                        <td><?= $user['id'] ?></td>
                         <td><?= $firstName = getFirstName($user['full_name']) ?></td>
                         <td><?= $lastName = getLastName($user['full_name']) ?></td>              
+                        <td>
+                            <a href="view.html"><button class="btn btn-primary btn-sm">View</button></a>
+                            <a href="edit.html"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
+                            <button class="btn btn-sm">Delete</button>
+                        </td>
+
                     </tr>
                 <?php endforeach; ?>
 
