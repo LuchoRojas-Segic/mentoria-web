@@ -46,7 +46,7 @@
         
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <h1>View User Detail</h1>
+            <h1>Ver detalles del Usuario</h1>
             <p>Name: Pisyek</p>
             <p>Email: pisyek@gmail.com</p>
         </div>

@@ -89,7 +89,8 @@
                         <td><?= $firstName = getFirstName($user['full_name']) ?></td>
                         <td><?= $lastName = getLastName($user['full_name']) ?></td>              
                         <td>
-                            <a href="view.php"><button class="btn btn-primary btn-sm">View</button></a>
+                            <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
+                            <?php echo $user['id']?>
                             <a href="edit.php"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
                             <button class="btn btn-sm">Delete</button>
                         </td>
