@@ -69,10 +69,10 @@
             <h1>Ver detalles del Usuario</h1>
                 
                 <?php foreach ($users as $user): ?>
-
                     <p>Name:<?= $user['full_name'] ?></p>
-                    <p>Email: <?= $user['email'] ?></p>                
+                    <p>Email: <?= $user['email'] ?? 'Sin correo' ?></p>                
                 <?php endforeach; ?>
+
 
         </div>
     </main>
