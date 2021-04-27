@@ -81,16 +81,16 @@
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre">
                     <small class="form-text text-muted">Help message here.</small>
                     <label for="name">Email</label>
-                    <input type="text" class="form-control" id="email" placeholder="Ingrese Email">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese Email">
                     <small class="form-text text-muted">Help message here.</small>
                     <label for="name">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Ingrese Username">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese Username">
                     <small class="form-text text-muted">Help message here.</small>
                     <label for="name">Password</label>
-                    <input type="text" class="form-control" id="password" placeholder="Ingrese contraseña">
+                    <input type="text" class="form-control" id="password" name="password" placeholder="Ingrese contraseña">
                     <small class="form-text text-muted">Help message here.</small>
 
                 </div>
