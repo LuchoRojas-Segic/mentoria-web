@@ -2,7 +2,7 @@
 	require "util/db.php";
 
 	$valido = 0;
-	if (isset($_POST['View'])){
+	//if (isset($_POST['View'])){
 
         $db = connectDB();
     
@@ -15,7 +15,7 @@
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
         //print_r($users);	
-	}	
+	//}	
 
 ?>
 <!doctype html>
