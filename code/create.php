@@ -75,16 +75,16 @@
             <h1>Crear Nuevo Usuario</h1>
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="name">full_name</label>
+                    <label for="name">Nombre</label>
                     <input type="text" class="form-control" id="name" placeholder="Ingrese nombre">
                     <small class="form-text text-muted">Help message here.</small>
-                    <label for="name">email</label>
+                    <label for="name">Email</label>
                     <input type="text" class="form-control" id="name" placeholder="Ingrese Email">
                     <small class="form-text text-muted">Help message here.</small>
-                    <label for="name">username</label>
+                    <label for="name">Username</label>
                     <input type="text" class="form-control" id="name" placeholder="Ingrese Username">
                     <small class="form-text text-muted">Help message here.</small>
-                    <label for="name">password</label>
+                    <label for="name">Password</label>
                     <input type="text" class="form-control" id="name" placeholder="Ingrese contraseña">
                     <small class="form-text text-muted">Help message here.</small>
 
