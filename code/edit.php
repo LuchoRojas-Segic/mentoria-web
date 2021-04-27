@@ -8,10 +8,14 @@
         $id = $_GET['id'];
         $nombre = $_POST['nombre'];
 
-        $sql = "UPDATE users set full_name = $nombre WHERE id = $id ";
+        $sql = "UPDATE users set full_name = :full_name WHERE id = :id ";
         //statement
     
-        $stmt = $db->prepare($sql);        
+        $stmt = $db->prepare($sql);  
+
+        $stmt->bindparam(':full_name',$nombre);      
+        $stmt->bindparam(':id',$id); 
+
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
         //print_r($users);	
@@ -70,7 +74,7 @@
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" value="Nama saya Pisyek" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" name="nombre" value="<?=$users['full_name'] ?>" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <button type="submit" class="btn btn-primary" name = "Submit">Submit</button>
