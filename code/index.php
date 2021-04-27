@@ -19,7 +19,26 @@
 
     function getLastName($name) {
         return array_slice(explode(' ', $name), -1)[0];
-    }    
+    }  
+
+    if (isset($_POST["Borrar"])){
+
+        $db = connectDB();
+    
+        $id = $_GET['id'];
+
+        $sql = "DELETE FROM users WHERE id = :id ";
+        //statement
+    
+        $stmt = $db->prepare($sql);  
+   
+        $stmt->bindparam(':id',$id); 
+
+        $stmt -> execute();
+        $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+        //print_r($users);	
+
+	}	
     
 
 ?>
@@ -91,7 +110,7 @@
                         <td>
                             <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                             <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
-                            <button class="btn btn-sm">Delete</button>
+                            <button class="btn btn-sm" ?id=<?=$user['id']?> name = "Borrar">Delete</button>
                         </td>
 
                     </tr>

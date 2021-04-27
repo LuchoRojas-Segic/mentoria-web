@@ -2,7 +2,7 @@
 	require "util/db.php";
 
 	$valido = 0;
-	//if (isset($_POST['View'])){
+	//if (isset($_POST["View"])){
 
         $db = connectDB();
     
