@@ -10,11 +10,10 @@
         $sql = "SELECT * FROM users WHERE id = $id ";
         //statement
     
-        $stmt = $db->prepare($sql);
-        //$smtp ->bindparam(':id',$id);
+        $stmt = $db->prepare($sql);        
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
-        print_r($users);	
+        //print_r($users);	
 	//}	
 
 ?>
