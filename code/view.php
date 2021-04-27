@@ -7,7 +7,7 @@
         $db = connectDB();
     
         $id = $_GET['id'];
-        $sql = "SELECT * FROM users WHERE id = :id";
+        $sql = "SELECT * FROM users WHERE id = $id ";
         //statement
     
         $stmt = $db->prepare($sql);
