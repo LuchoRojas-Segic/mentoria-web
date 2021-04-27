@@ -15,11 +15,12 @@
         //statement
     
         $stmt = $db->prepare($sql);  
+        $pass=password_hash($password, PASSWORD_DEFAULT);
 
         $stmt->bindParam(':full_name',$nombre);
         $stmt->bindParam(':email',$email);
         $stmt->bindParam(':user_name',$username);
-        $stmt->bindParam(':password',password_hash($password, PASSWORD_DEFAULT));
+        $stmt->bindParam(':password',$pass);
      
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
