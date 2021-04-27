@@ -73,9 +73,13 @@
             <h1>Edit User</h1>
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="nombre" value="<?=$users['full_name'] ?>" placeholder="Enter name">
-                    <small class="form-text text-muted">Help message here.</small>
+
+                    <?php foreach ($users as $user): ?>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="nombre" value="<?=$users['full_name'] ?>" placeholder="Enter name">
+                        <small class="form-text text-muted">Help message here.</small>                
+                    <?php endforeach; ?>
+
                 </div>
                 <button type="submit" class="btn btn-primary" name = "Submit">Submit</button>
             </form>
