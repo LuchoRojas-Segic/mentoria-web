@@ -19,6 +19,8 @@
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
         //print_r($users);	
+
+        echo "Registro Actualizado.";
 	}	
 
     $db = connectDB();
