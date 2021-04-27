@@ -38,7 +38,9 @@
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
         print_r($users);	
 
- 
+	}	
+    
+
 ?>
 
 <!doctype html>
