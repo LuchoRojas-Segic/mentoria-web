@@ -7,10 +7,11 @@
         $db = connectDB();
     
         $id = $_GET['id'];
-        $sql = "SELECT * FROM users WHERE id = $id ";
+        $sql = "SELECT * FROM users WHERE id = :id ";
         //statement
     
-        $stmt = $db->prepare($sql);        
+        $stmt = $db->prepare($sql);   
+        $stmt->bindparam(':id',$id);     
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
         //print_r($users);	
@@ -68,7 +69,7 @@
             <h1>Ver detalles del Usuario</h1>
                 
                 <?php foreach ($users as $user): ?>
-                    <p>Name:<?= $user['full_name'] ?></p>
+                    <p>Name : <?= $user['full_name'] ?></p>
                     <p>Email: <?= $user['email'] ?? 'Sin correo' ?></p>                
                 <?php endforeach; ?>
 

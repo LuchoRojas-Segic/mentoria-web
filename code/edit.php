@@ -1,3 +1,23 @@
+<?php
+	require "util/db.php";
+
+	if (isset($_POST["Submit"])){
+
+        $db = connectDB();
+    
+        $id = $_GET['id'];
+        $nombre = $_POST['nombre'];
+
+        $sql = "UPDATE users set full_name = $nombre WHERE id = $id ";
+        //statement
+    
+        $stmt = $db->prepare($sql);        
+        $stmt -> execute();
+        $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+        //print_r($users);	
+	}	
+
+?>
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -53,7 +73,7 @@
                     <input type="text" class="form-control" id="name" value="Nama saya Pisyek" placeholder="Enter name">
                     <small class="form-text text-muted">Help message here.</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name = "Submit">Submit</button>
             </form>
         </div>
     </main>
