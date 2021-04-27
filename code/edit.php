@@ -86,8 +86,8 @@
                 <div class="form-group">
 
                     <?php foreach ($users as $user): ?>
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="nombre" value="<?=$users['full_name'] ?>" placeholder="Enter name">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" value="<?=$user['full_name'] ?>" placeholder="Enter name">
                         <small class="form-text text-muted">Help message here.</small>                
                     <?php endforeach; ?>
 
