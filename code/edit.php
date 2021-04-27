@@ -20,7 +20,7 @@
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
         //print_r($users);	
 
-        echo "Registro Actualizado.";
+        header("Location: index.php");
 	}	
 
     $db = connectDB();
