@@ -16,7 +16,7 @@
     
         $stmt = $db->prepare($sql);  
 
-        $stmt->bindParam(':full_name',$nombre];
+        $stmt->bindParam(':full_name',$nombre);
         $stmt->bindParam(':email',$email);
         $stmt->bindParam(':user_name',$username);
         $stmt->bindParam(':password',password_hash($password, PASSWORD_DEFAULT));
