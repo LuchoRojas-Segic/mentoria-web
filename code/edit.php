@@ -21,6 +21,17 @@
         //print_r($users);	
 	}	
 
+    $db = connectDB();
+    
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM users WHERE id = :id ";
+    //statement
+
+    $stmt = $db->prepare($sql);   
+    $stmt->bindparam(':id',$id);     
+    $stmt -> execute();
+    $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
