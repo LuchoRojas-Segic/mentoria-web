@@ -14,7 +14,7 @@
         //$smtp ->bindparam(':id',$id);
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
-        //print_r($users);	
+        print_r($users);	
 	//}	
 
 ?>
