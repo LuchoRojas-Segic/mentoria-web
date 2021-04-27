@@ -1,3 +1,29 @@
+<?php
+	require "util/db.php";
+
+	if (isset($_POST["Submit"])){
+
+        $db = connectDB();
+    
+        /*$id = $_GET['id'];
+        $nombre = $_POST['nombre'];
+
+        $sql = "INSERT INTO users set full_name = :full_name WHERE id = :id ";
+        //statement
+    
+        $stmt = $db->prepare($sql);  
+
+        $stmt->bindparam(':full_name',$nombre);      
+        $stmt->bindparam(':id',$id); 
+
+        $stmt -> execute();
+        $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+        //print_r($users);	*/
+
+        echo "Usuario ingresado";
+	}	
+
+?>
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -46,14 +72,24 @@
         
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <h1>Create New User</h1>
+            <h1>Crear Nuevo Usuario</h1>
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                    <label for="name">full_name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Ingrese nombre">
                     <small class="form-text text-muted">Help message here.</small>
+                    <label for="name">email</label>
+                    <input type="text" class="form-control" id="name" placeholder="Ingrese Email">
+                    <small class="form-text text-muted">Help message here.</small>
+                    <label for="name">username</label>
+                    <input type="text" class="form-control" id="name" placeholder="Ingrese Username">
+                    <small class="form-text text-muted">Help message here.</small>
+                    <label for="name">password</label>
+                    <input type="text" class="form-control" id="name" placeholder="Ingrese contraseña">
+                    <small class="form-text text-muted">Help message here.</small>
+
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" name = "Submit">Submit</button>
             </form>
         </div>
     </main>
