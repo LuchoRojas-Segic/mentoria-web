@@ -38,9 +38,7 @@
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
         print_r($users);	
 
-	}	
-    
-
+ 
 ?>
 
 <!doctype html>
@@ -110,6 +108,7 @@
                         <td>
                             <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                             <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
+                            <!-- <button class="btn btn-sm">Delete</button>-->
                             <a href="#?id=<?=$user['id']?>"><button class="btn btn-sm" name = "Borrar">Delete</button></a>    
                         </td>
 
