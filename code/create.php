@@ -5,20 +5,25 @@
 
         $db = connectDB();
     
-        /*$id = $_GET['id'];
         $nombre = $_POST['nombre'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-        $sql = "INSERT INTO users set full_name = :full_name WHERE id = :id ";
+        $sql="INSERT INTO users (full_name, email, user_name, password)
+                VALUES(:full_name, :email, :user_name, :password)";
         //statement
     
         $stmt = $db->prepare($sql);  
 
-        $stmt->bindparam(':full_name',$nombre);      
-        $stmt->bindparam(':id',$id); 
-
+        $stmt->bindParam(':full_name',$nombre];
+        $stmt->bindParam(':email',$email);
+        $stmt->bindParam(':user_name',$username);
+        $stmt->bindParam(':password',password_hash($password, PASSWORD_DEFAULT));
+     
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
-        //print_r($users);	*/
+        //print_r($users);	
 
         echo "Usuario ingresado";
 	}	
@@ -76,16 +81,16 @@
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ingrese nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre">
                     <small class="form-text text-muted">Help message here.</small>
                     <label for="name">Email</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ingrese Email">
+                    <input type="text" class="form-control" id="email" placeholder="Ingrese Email">
                     <small class="form-text text-muted">Help message here.</small>
                     <label for="name">Username</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ingrese Username">
+                    <input type="text" class="form-control" id="username" placeholder="Ingrese Username">
                     <small class="form-text text-muted">Help message here.</small>
                     <label for="name">Password</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ingrese contraseña">
+                    <input type="text" class="form-control" id="password" placeholder="Ingrese contraseña">
                     <small class="form-text text-muted">Help message here.</small>
 
                 </div>

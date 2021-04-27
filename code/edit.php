@@ -89,7 +89,7 @@
 
                     <?php foreach ($users as $user): ?>
                         <label for="name">Nombre</label>
-                        <input type="text" class="form-control" name="nombre" value="<?=$user['full_name'] ?>" placeholder="Enter name">
+                        <input type="text" class="form-control" name="nombre" value="<?=$user['full_name'] ?>" placeholder="Ingrese nombre">
                         <small class="form-text text-muted">Help message here.</small>                
                     <?php endforeach; ?>
 
