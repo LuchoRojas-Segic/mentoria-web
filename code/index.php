@@ -21,11 +21,6 @@
         return array_slice(explode(' ', $name), -1)[0];
     }  
 
-    if(isset($_SESSION["msg-delete"])){
-        $mensaje = $_SESSION["msg-delete"];
-        $_SESSION["msg-delete"] = "";
-        //unset($_SESSION["msg-delete"] );
-    }
 
     if (isset($_POST["Borrar"])){
 
@@ -47,6 +42,12 @@
        // print_r($users);	
 
 	}	
+
+    if(isset($_SESSION["msg-delete"])){
+        $mensaje = $_SESSION["msg-delete"];
+        $_SESSION["msg-delete"] = "";
+        //unset($_SESSION["msg-delete"] );
+    }
     
 
 ?>
