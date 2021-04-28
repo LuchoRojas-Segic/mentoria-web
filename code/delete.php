@@ -1,7 +1,7 @@
 <?php
 
 //hago las consultas
-if (isset($_POST["Borrar"])){
+//if (isset($_POST["Borrar"])){
 
     echo "Entre a borrar";
 
@@ -20,7 +20,7 @@ if (isset($_POST["Borrar"])){
     $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
    // print_r($users);	
 
-}	
+//}	
 
 session_start();
 
