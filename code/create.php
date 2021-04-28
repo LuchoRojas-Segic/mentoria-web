@@ -9,14 +9,14 @@
         $email = $_POST['email'];
         $username = $_POST['username'];
         $password = $_POST['password'];
+        $pass=password_hash($password, PASSWORD_DEFAULT);
 
         $sql="INSERT INTO users (full_name, email, user_name, password)
                 VALUES(:full_name, :email, :user_name, :password)";
         //statement
     
         $stmt = $db->prepare($sql);  
-        $pass=password_hash($password, PASSWORD_DEFAULT);
-
+        
         $stmt->bindParam(':full_name',$nombre);
         $stmt->bindParam(':email',$email);
         $stmt->bindParam(':user_name',$username);
@@ -26,7 +26,7 @@
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
         //print_r($users);	
 
-        echo "Usuario ingresado";
+        header("Location: index.php");
 	}	
 
 ?>

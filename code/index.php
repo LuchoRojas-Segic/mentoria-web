@@ -21,6 +21,12 @@
         return array_slice(explode(' ', $name), -1)[0];
     }  
 
+    if(isset($_SESSION["msg-delete"])){
+        $mensaje = $_SESSION["msg-delete"];
+        $_SESSION["msg-delete"] = "";
+        //unset($_SESSION["msg-delete"] );
+    }
+
     if (isset($_POST["Borrar"])){
 
         $db = connectDB();
@@ -36,7 +42,7 @@
 
         $stmt -> execute();
         $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
-        print_r($users);	
+       // print_r($users);	
 
 	}	
     
@@ -59,6 +65,9 @@
    
   </head>
   <body class="d-flex flex-column h-100">
+    <?php if(isset($mensaje)): ?>
+        <p><?=$mensaje ?></p>
+    <?php endif; ?>
     
     <div class="container pt-4 pb-4">
         <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
@@ -102,16 +111,16 @@
                     </tr>
                 </thead>
 
-                <?php foreach ($users as $user): ?>
+                <?php foreach ($users as $hey => $user): ?>
                     <tr>                 
-                        <td><?= $user['id'] ?></td>
+                        <td><?= $key + 1 ?></td>
                         <td><?= $firstName = getFirstName($user['full_name']) ?></td>
                         <td><?= $lastName = getLastName($user['full_name']) ?></td>              
                         <td>
                             <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                             <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
                             <!-- <button class="btn btn-sm">Delete</button>-->
-                            <a href="#?id=<?=$user['id']?>"><button class="btn btn-sm" name = "Borrar">Delete</button></a>    
+                            <a href="delete.php?id=<?=$user['id']?>"><button class="btn btn-sm" name = "Borrar">Delete</button></a>    
                         </td>
 
                     </tr>
