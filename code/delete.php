@@ -1,9 +1,6 @@
 <?php
 
-//hago las consultas
-//if (isset($_POST["Borrar"])){
     require "util/db.php";
-    echo "Entre a borrar";
 
     $db = connectDB();
 
@@ -18,12 +15,9 @@
 
     $stmt -> execute();
     $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
-   // print_r($users);	
 
-//}	
+    session_start();
 
-session_start();
+    $_SESSION["msg-delete"] = "El registro se eliminó correctamente";
 
-$_SESSION["msg-delete"] = "El registro se eliminó correctamente";
-
-header("Location: index.php");
+    header("Location: index.php");
