@@ -57,7 +57,7 @@
                         <a class="nav-link" href="https://pisyek.com/contact">Help</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-md-0" method="POST">
+                <form class="form-inline my-2 my-md-0">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 </form>
             </div>
