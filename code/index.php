@@ -72,7 +72,7 @@
                         <a class="nav-link" href="https://pisyek.com/contact">Help</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-md-0">
+                <form class="form-inline my-2 my-md-0" method="POST">
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">
                 </form>
             </div>
@@ -98,7 +98,7 @@
                         <td><?= $firstName = getFirstName($user['full_name']) ?></td>
                         <td><?= $lastName = getLastName($user['full_name']) ?></td>              
                         <td>
-                            <a href="view.php?id=<?=$user['id']?>" method="POST"><button class="btn btn-primary btn-sm">View</button></a>
+                            <a href="view.php?id=<?=$user['id']?>"><button class="btn btn-primary btn-sm">View</button></a>
                             <a href="edit.php?id=<?=$user['id']?>"><button class="btn btn-outline-primary btn-sm">Edit</button></a>
                             <!-- <button class="btn btn-sm">Delete</button>-->
                             <a href="delete.php?id=<?=$user['id']?>"><button class="btn btn-sm" name = "Borrar">Delete</button></a>    
