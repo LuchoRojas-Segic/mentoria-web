@@ -21,28 +21,6 @@
         return array_slice(explode(' ', $name), -1)[0];
     }  
 
-
-    if (isset($_POST["Borrar"])){
-
-        echo "Entre a borrar";
-
-        $db = connectDB();
-    
-        $id = $_GET['id'];
-
-        $sql = "DELETE FROM users WHERE id = :id ";
-        //statement
-    
-        $stmt = $db->prepare($sql);  
-   
-        $stmt->bindparam(':id',$id); 
-
-        $stmt -> execute();
-        $users = $stmt ->fetchAll(PDO::FETCH_ASSOC);
-       // print_r($users);	
-
-	}	
-
     if(isset($_SESSION["msg-delete"])){
         $mensaje = $_SESSION["msg-delete"];
         $_SESSION["msg-delete"] = "";
