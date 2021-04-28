@@ -29,6 +29,8 @@
 
     if (isset($_POST["Borrar"])){
 
+        echo "Entre a borrar";
+
         $db = connectDB();
     
         $id = $_GET['id'];
