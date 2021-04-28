@@ -72,7 +72,7 @@
                         <a class="nav-link" href="https://pisyek.com/contact">Help</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="carga.php">Carga de Archivos</a>
+                        <a class="nav-link" href="cargaarchivos.php">Carga de Archivos</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-md-0">
