@@ -111,7 +111,7 @@
                     </tr>
                 </thead>
 
-                <?php foreach ($users as $hey => $user): ?>
+                <?php foreach ($users as $key => $user): ?>
                     <tr>                 
                         <td><?= $key + 1 ?></td>
                         <td><?= $firstName = getFirstName($user['full_name']) ?></td>
