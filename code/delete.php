@@ -2,7 +2,7 @@
 
 //hago las consultas
 //if (isset($_POST["Borrar"])){
-
+    require "util/db.php";
     echo "Entre a borrar";
 
     $db = connectDB();
