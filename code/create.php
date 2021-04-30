@@ -80,9 +80,9 @@
         <div class="container">
             <h1>Crear Nuevo Usuario</h1>
             <form action="" method="POST">
-                <div class="form-group">                
-                    <label for="name">Nombre</label>
+                <div class="form-group">                                    
                     <div class="wrap-input100 validate-input" data-validate="Nombre el requerido">
+                        <label for="name">Nombre</label>
                         <span class="label-input100">Full Name</span>
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre">
                         <small class="form-text text-muted">Help message here.</small>
