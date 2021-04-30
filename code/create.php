@@ -83,8 +83,10 @@
                 <div class="form-group">                
                     <label for="name">Nombre</label>
                     <div class="wrap-input100 validate-input" data-validate="Nombre el requerido">
+                        <span class="label-input100">Full Name</span>
                         <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre">
                         <small class="form-text text-muted">Help message here.</small>
+                        <span class="focus-input100"></span>
                     </div>    
 
                     <label for="name">Email</label>
