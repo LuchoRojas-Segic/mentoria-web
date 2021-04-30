@@ -81,31 +81,21 @@
             <h1>Crear Nuevo Usuario</h1>
             <form action="" method="POST">
                 <div class="form-group">                                    
-                    <div class="wrap-input100 validate-input" data-validate="Nombre el requerido">
-                        <label for="name">Nombre</label>
-                        <span class="label-input100">Full Name</span>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre">
-                        <small class="form-text text-muted">Help message here.</small>
-                        <span class="focus-input100"></span>
-                    </div>    
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombre">
+                    <small class="form-text text-muted">Help message here.</small>
 
                     <label for="name">Email</label>
-                    <div class="wrap-input100 validate-input" data-validate = "Email valido es requerido: ex@abc.xyz">                    
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese Email">                        
-                        <small class="form-text text-muted">Help message here.</small>
-                    </div>    
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Ingrese Email">                        
+                    <small class="form-text text-muted">Help message here.</small>
 
                     <label for="name">Username</label>
-                    <div class="wrap-input100 validate-input" data-validate="Username es requerido">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese Username">
-                        <small class="form-text text-muted">Help message here.</small>
-                    </div> 
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese Username">
+                    <small class="form-text text-muted">Help message here.</small>
 
                     <label for="name">Password</label>
-                    <div class="wrap-input100 validate-input" data-validate = "Password es requerida">
-                        <input type="text" class="form-control" id="password" name="password" placeholder="*****">
-                        <small class="form-text text-muted">Help message here.</small>
-                    </div> 
+                    <input type="text" class="form-control" id="password" name="password" placeholder="*****">
+                    <small class="form-text text-muted">Help message here.</small>
                 </div>
                 <button type="submit" class="btn btn-primary" name = "Submit">Submit</button>
             </form>
