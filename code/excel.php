@@ -32,9 +32,9 @@ foreach ($users as $key => $user){
     $sheet->setCellValue('E'.$fil,$user['email']);    
 }
 $writer = new Xlsx($spreadsheet);
-//header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-//header('Content-Disposition: attachment; filename="usuarios.xlsx"');
-header("Content-Type: application/vnd.ms-excel");
-header("Content-Disposition: attachment; filename=usuarios.xls");
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment; filename="usuarios.xlsx"');
+//header("Content-Type: application/vnd.ms-excel");
+//header("Content-Disposition: attachment; filename=usuarios.xls");
 $writer->save('php://output');
 //$writer->save('usuarios.xlsx');
