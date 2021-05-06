@@ -23,7 +23,7 @@ $sheet->setCellValue('C1', 'Nombre');
 $sheet->setCellValue('D1', 'Nombre Usuario');
 $sheet->setCellValue('E1', 'Correo');
 
-foreach ($users as $key->$user){
+foreach ($users as $key => $user){
     $fil=$key + 2;
     $sheet->setCellValue('A'.$fil,$key + 1);
     $sheet->setCellValue('B'.$fil,$user['id']);
