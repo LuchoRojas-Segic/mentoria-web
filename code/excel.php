@@ -32,7 +32,7 @@ $sheet->setCellValueByColumnAndRow(5, 1, 'Correo Usuario');*/
 
 foreach ($users as $key => $user){
     $fil=$key + 2;
-    $sheet->setCellValue(1, $fil,$key + 1);
+    $sheet->setCellValue('A'.$fil,$key + 1);
     $sheet->setCellValue('B'.$fil,$user['id']);
     $sheet->setCellValue('C'.$fil,$user['full_name']);
     $sheet->setCellValue('D'.$fil,$user['user_name']);
