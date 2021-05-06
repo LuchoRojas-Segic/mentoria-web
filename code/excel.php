@@ -32,7 +32,7 @@ foreach ($users as $key => $user){
     $sheet->setCellValue('E'.$fil,$user['e_mail']);    
 }
 $writer = new Xlsx($spreadsheet);
-//header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-//header('Content-Disposition: attachment; filename="usuarios"');
-//$writer->save('php://output');
-$writer->save('usuarios.xlsx');
+header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+header('Content-Disposition: attachment; filename="usuarios"');
+$writer->save('php://output');
+//$writer->save('usuarios.xlsx');
