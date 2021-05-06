@@ -33,5 +33,5 @@ foreach ($users as $key => $user){
 }
 $writer = new Xlsx($spreadsheet);
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment; filename="usuarios.xls"');
+header('Content-Disposition: attachment; filename="usuarios"');
 $writer->save('php://output');
