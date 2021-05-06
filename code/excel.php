@@ -24,24 +24,24 @@ $sheet->setCellValue('C1', 'Nombre');
 $sheet->setCellValue('D1', 'Nombre Usuario');
 $sheet->setCellValue('E1', 'Correo');*/
 
-$sheet->setCellValueByColumnAndRow(1, 1, '#');
-$sheet->setCellValueByColumnAndRow(2, 1, 'Id');
-$sheet->setCellValueByColumnAndRow(3, 1, 'Nombres');
-$sheet->setCellValueByColumnAndRow(4, 1, 'Usuario');
-$sheet->setCellValueByColumnAndRow(5, 1, 'Correo Usuario');
+$sheet->setCellValueByColumnAndRow(0, 1, '#');
+$sheet->setCellValueByColumnAndRow(1, 1, 'Id');
+$sheet->setCellValueByColumnAndRow(2, 1, 'Nombres');
+$sheet->setCellValueByColumnAndRow(3, 1, 'Usuario');
+$sheet->setCellValueByColumnAndRow(4, 1, 'Correo Usuario');
 
 foreach ($users as $key => $user){
     $fil=$key + 2;
-    $sheet->setCellValue(1, $fil,$key + 1);
+    $sheet->setCellValue(0, $fil,$key + 1);
     /*$sheet->setCellValue('B'.$fil,$user['id']);
     $sheet->setCellValue('C'.$fil,$user['full_name']);
     $sheet->setCellValue('D'.$fil,$user['user_name']);
     $sheet->setCellValue('E'.$fil,$user['email']); */  
 
-    $sheet->setCellValueByColumnAndRow(2, $fil,$user['id']);
-    $sheet->setCellValueByColumnAndRow(3, $fil,$user['full_name']);
-    $sheet->setCellValueByColumnAndRow(4, $fil,$user['user_name']);
-    $sheet->setCellValueByColumnAndRow(5, $fil,$user['email']);   
+    $sheet->setCellValueByColumnAndRow(1, $fil,$user['id']);
+    $sheet->setCellValueByColumnAndRow(2, $fil,$user['full_name']);
+    $sheet->setCellValueByColumnAndRow(3, $fil,$user['user_name']);
+    $sheet->setCellValueByColumnAndRow(4, $fil,$user['email']);   
 }
 $writer = new Xlsx($spreadsheet);
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
