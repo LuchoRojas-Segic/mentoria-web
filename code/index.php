@@ -92,7 +92,8 @@
                     <th scope="col">First</th>
                     <th scope="col">Last</th>
                     <th scope="col">Action</th>
-                    <th scope="col">Excel</th> <a href="excel.php"><button class="btn btn-primary btn-sm">Excel</button></a>                    
+                    <!--<th scope="col">Excel</th> -->
+                    <a href="excel.php"><button class="btn btn-primary btn-sm">Excel</button></a>                    
                     </tr>
                 </thead>
 
