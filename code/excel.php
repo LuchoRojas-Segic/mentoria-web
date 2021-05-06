@@ -29,7 +29,7 @@ foreach ($users as $key => $user){
     $sheet->setCellValue('B'.$fil,$user['id']);
     $sheet->setCellValue('C'.$fil,$user['full_name']);
     $sheet->setCellValue('D'.$fil,$user['user_name']);
-    $sheet->setCellValue('E'.$fil,$user['e_mail']);    
+    $sheet->setCellValue('E'.$fil,$user['email']);    
 }
 $writer = new Xlsx($spreadsheet);
 //header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
