@@ -1,0 +1,15 @@
+{
+    "name": "luchazo/phpmvc-framework",
+    "authors": [
+        {
+            "name": "Luis Rojas",
+            "email": "luis.rojas@segic.usach.cl"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "app\\":"./"
+        }
+    },
+    "require": {}
+}
