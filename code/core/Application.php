@@ -11,7 +11,7 @@ class Application
         $this->router = new Router();
     }
 
-    public function run();
+    public function run()
     {
         $this->router->resolve();
     }
