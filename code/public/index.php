@@ -8,7 +8,7 @@ echo __DIR__;
 echo "<br>";
 echo dirname(__DIR__);
 
-$app = new Application();
+$app = new Application(dirname(__DIR__));
 
 $app->router->get('/','home');
 
