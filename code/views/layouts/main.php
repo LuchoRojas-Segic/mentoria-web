@@ -31,8 +31,6 @@
 </nav>
 
 
-<h1>Contact!!!</h1>
-
     {{content}}
 
     <!-- Optional JavaScript; choose one of the two! -->
