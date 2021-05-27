@@ -60,8 +60,9 @@ class Router
             //$bla = new \app\controllers\SiteController();
             //$bla = new $callback[0]();
             $callback[0] = new $callback[0]();
-            var_dump($callback);
-            exit;
+            //var_dump($callback);
+            //exit;
+            //array(2) { [0]=> object(app\controllers\SiteController)#6 (0) { } [1]=> string(4) "home" } 
         }
 
         //print_r($this->routes);

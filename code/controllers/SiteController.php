@@ -8,12 +8,12 @@ class SiteController
 {
     public function home()//Metodo
     {
-        Application::$app->router->renderView('home');
+        return Application::$app->router->renderView('home');
     }
-    
+
     public function contact()//Metodo
     {
-        Application::$app->router->renderView('contact');
+        return Application::$app->router->renderView('contact');
     }    
 
     public function handleContact()//Metodo
