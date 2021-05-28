@@ -8,11 +8,12 @@ class SiteController extends Controller
 {
     public function home()//Metodo
     {
-        //return Application::$app->router->renderView('home');
-        return $this->render('home', [
+        $params = [
             'name'=> 'Juan',
             'surname' => 'Perez'
-        ]);
+        ];
+        //return Application::$app->router->renderView('home');
+        return $this->render('home', $params);
     }
 
     public function contact()//Metodo
