@@ -98,10 +98,13 @@ class Router
         //exit;
 
         foreach($params as $key => $value){
-            echo "$key => $value";
+            //echo "$key => $value";
+
+            $$key = $value;
+            //$name = $value;
         }
         exit;
-        
+
         ob_start();
         include_once Application::$ROOT_DIR . "/views/$view.php";    
         return ob_get_clean();
