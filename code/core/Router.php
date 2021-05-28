@@ -77,11 +77,11 @@ class Router
         $layoutContent = $this->layoutContent();        
         return str_replace('{{content}}', $viewContent, $layoutContent) ;
     }    
-    public function renderView($view)
+    public function renderView($view, $params = [])
     {
         $layoutContent = $this->layoutContent();
-        $viewContent = $this->renderOnlyView($view);
-        include_once Application::$ROOT_DIR . "/views/$view.php";
+        $viewContent = $this->renderOnlyView($view, $params);
+        //include_once Application::$ROOT_DIR . "/views/$view.php";
 
         return str_replace('{{content}}', $viewContent, $layoutContent) ;
 
@@ -92,8 +92,10 @@ class Router
         include_once Application::$ROOT_DIR . "/views/layouts/main.php"; 
         return ob_get_clean(); //la variables guardadas se limpian
     }
-    public function renderOnlyView($view) //metodo
+    public function renderOnlyView($view, $params) //metodo
     {
+        var_dump($params);
+        exit;
         ob_start();
         include_once Application::$ROOT_DIR . "/views/$view.php";    
         return ob_get_clean();
