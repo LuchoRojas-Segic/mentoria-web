@@ -94,16 +94,16 @@ class Router
     }
     public function renderOnlyView($view, $params) //metodo
     {
-        //var_dump($params);
-        //exit;
+        var_dump($params);
+        exit;
 
-        foreach($params as $key => $value){
+        /*foreach($params as $key => $value){
             //echo "$key => $value";
 
             $$key = $value;
             //$name = $value;
         }
-        exit;
+        exit;*/
 
         ob_start();
         include_once Application::$ROOT_DIR . "/views/$view.php";    
