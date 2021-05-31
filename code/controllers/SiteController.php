@@ -28,8 +28,8 @@ class SiteController extends Controller
         return $this->render('contact');
     }    
 
-    //public function handleContact()//Metodo
-    public function handleContact(Request $request)//Metodo
+    public function handleContact()//Metodo
+    //public function handleContact(Request $request)//Metodo
     {
         $body = Application::$app->request->getBody();
         var_dump($body);
