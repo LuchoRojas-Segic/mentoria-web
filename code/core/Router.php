@@ -98,9 +98,9 @@ class Router
         //exit;
 
         foreach($params as $key => $value){
-            //echo "$key => $value";
+            echo "$key => $value";
             
-            $$key = $value;
+            //$$key = $value;
             //$name = $value;
         }
         exit;
