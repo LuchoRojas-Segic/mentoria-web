@@ -103,7 +103,6 @@ class Router
             $$key = $value;
             //$name = $value;
         }
-        exit;
 
         ob_start();
         include_once Application::$ROOT_DIR . "/views/$view.php";    
