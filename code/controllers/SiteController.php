@@ -30,7 +30,7 @@ class SiteController extends Controller
         /*$body = Application::$app->request->getBody();
         var_dump($body);
         exit;*/
-        $body = $request->getBody();
+        //$body = $request->getBody();
         return "Procesando información";
     }      
 }
