@@ -10,12 +10,16 @@ class SiteController extends Controller
 {
     public function home()//Metodo
     {
-        $params = [
+        /*$params = [
             'name'=> 'Juan',
             'surname' => 'Perez'
-        ];
+        ];*/
         //return Application::$app->router->renderView('home');
-        return $this->render('home', $params);
+        //return $this->render('home', $params);
+        return $this->render('home', [
+            'name'=> 'Juan',
+            'surname' => 'Perez'
+        ]);
     }
 
     public function contact()//Metodo
@@ -27,9 +31,9 @@ class SiteController extends Controller
     //public function handleContact()//Metodo
     public function handleContact(Request $request)//Metodo
     {
-        /*$body = Application::$app->request->getBody();
+        $body = Application::$app->request->getBody();
         var_dump($body);
-        exit;*/
+        exit;
         //$body = $request->getBody();
         return "Procesando información";
     }      
