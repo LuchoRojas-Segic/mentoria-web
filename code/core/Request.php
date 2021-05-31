@@ -22,7 +22,7 @@ class Request
         return strtolower($_SERVER["REQUEST_METHOD"]);
     }
 
-    public function getBody()
+    /*public function getBody()
     {
         $body = [];
 
@@ -35,6 +35,6 @@ class Request
                 $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
         }
         return $body;
-    }
+    }*/
 
 }
