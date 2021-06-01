@@ -19,5 +19,11 @@ $app->router->post('/contact', function(){
 $app->router->get('/',[\app\controllers\SiteController::class,'home']);//entrega el nombre completo de la clase
 $app->router->get('/contact',[\app\controllers\SiteController::class,'contact']);//entrega el nombre completo de la clase
 $app->router->post('/contact',[\app\controllers\SiteController::class,'handleContact']);//entrega el nombre completo de la clase
-    
+
+$app->router->get('/register',[\app\controllers\AuthController::class,'register']);//entrega el nombre completo de la clase
+$app->router->post('/register',[\app\controllers\AuthController::class,'register']);//entrega el nombre completo de la clase
+   
+$app->router->get('/login',[\app\controllers\AuthController::class,'login']);//entrega el nombre completo de la clase
+$app->router->post('/login',[\app\controllers\AuthController::class,'login']);//entrega el nombre completo de la clase
+   
 $app->run();
