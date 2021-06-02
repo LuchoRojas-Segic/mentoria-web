@@ -14,11 +14,11 @@
   </div>  
   <div class="mb-3">
     <label class="form-label">Password</label>
-    <textarea name="password" name = "password" class="form-control">     
+    <textarea type="password" name="password" class="form-control">     
   </div>
   <div class="mb-3">
     <label class="form-label">Confirm Password</label>
-    <textarea name="password" name = "confirmPassword" class="form-control">     
+    <textarea type="password" name = "confirmPassword" class="form-control">     
   </div>  
 
   <button type="submit" class="btn btn-primary">Save</button>
