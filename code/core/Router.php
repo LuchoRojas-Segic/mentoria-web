@@ -59,7 +59,11 @@ class Router
 
             //$bla = new \app\controllers\SiteController();
             //$bla = new $callback[0]();
-            $callback[0] = new $callback[0]();
+            //$callback[0] = new $callback[0](); //instancia del controlador
+
+            Application::$app->controller = new $callback[0]();
+            $callback[0] = Application::$app->controller;
+
             //var_dump($callback);
             //exit;
             //array(2) { [0]=> object(app\controllers\SiteController)#6 (0) { } [1]=> string(4) "home" } 
@@ -88,8 +92,10 @@ class Router
     }
     public function layoutContent() //metodo
     {
+        $layout = Application::$app->controller->layout;
+
         ob_start(); //Se guarda el memoria temporal
-        include_once Application::$ROOT_DIR . "/views/layouts/main.php"; 
+        include_once Application::$ROOT_DIR . "/views/layouts/$layout.php"; 
         return ob_get_clean(); //la variables guardadas se limpian
     }
     public function renderOnlyView($view, $params) //metodo

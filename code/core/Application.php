@@ -8,6 +8,7 @@ class Application
     public Request $request;
     public Router $router;
     public Response $response;
+    public Controller $controller;
 
     public static Application $app;
 
