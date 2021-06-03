@@ -1,0 +1,65 @@
+<?php
+
+namespace app\core;
+
+abstract class Model
+{
+    public const RULE_REQUIRED = 'required';
+    public const RULE_MAIL= 'email';
+    public const RULE_MIN = 'min';
+    public const RULE_MAX = 'max';
+    public const RULE_MATCH = 'match';
+
+    public $errors = [];
+
+    public function loadData($data)
+    {
+        foreach ($data as $key => $value){
+            if (property_exists($this, $key)){
+                $this->$key = $value;
+                //$this->firstname = "juan";
+            }
+        }
+    }
+
+    //Obligaa a las clases a hijas a utilizar si o si la siguiente función
+    abstract public function rules(): array;
+
+    public function validate()
+    {
+        foreach ($this->rules() as $attribute => $rules){
+            $value = $this->$attribute; //$this->firstname
+            foreach ($rules as $rule){
+                $rulename = $rule;
+
+                //!is     No es
+                if (!is_string($rulename)){
+                    $rulename = $rule[0];
+                }
+
+                if ($rulename === self::RULE_REQUIRED && !$value){
+                    //agregar error
+                    $this->addError($attribute, self::RULE_REQUIRED);
+                }
+            }
+        }
+
+        return empty($this->errors);
+    }
+    public function addError($attribute, $rule)
+    {
+        $message = $this->errorMessages()[$rule] ?? '';
+
+        $this->errors[$attribute] = $message;
+    }
+    public function errorMessages()
+    {
+        return[
+            self::RULE_REQUIRED => 'This field is required',
+            self::RULE_MAIL => 'This field must be an email',
+            self::RULE_MIN => 'Min length of the field must be {min}',
+            self::RULE_MAX => 'Max length of the field must be {max}',
+            self::RULE_MATCH => 'This fields must be same as {attribute}',
+        ];
+    }    
+}

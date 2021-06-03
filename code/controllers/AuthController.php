@@ -5,6 +5,7 @@ use app\core\Request;
 use app\core\Controller;
 use app\models\RegisterModel;
 
+
 class AuthController extends Controller
 {
     public function login()
@@ -19,9 +20,20 @@ class AuthController extends Controller
 
         if ($request->isPost()) { 
             $registerModel = new RegisterModel();
+
+            //var_dump($request->getBody());
+
+            $registerModel->loadData($request->getBody());  
+            //var_dump($registerModel);
+
+            if ($registerModel->validate() && $registerModel->save())  {
+                return 'Success';
+            }
             
+            echo "<pre>";
+            var_dump ($registerModel);
             return "Procesando datos del formulario";
-            
+            echo "<pre>";
         }    
         return $this->render('register'); 
     }
