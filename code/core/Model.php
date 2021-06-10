@@ -87,5 +87,15 @@ abstract class Model
             self::RULE_MAX => 'Max length of the field must be {max}',
             self::RULE_MATCH => 'This fields must be same as {attribute}',
         ];
-    }    
+    }   
+    
+    public function hasError($attribute)
+    {
+        return isset($this->errors[$attribute][0]);
+    }
+
+    public function getFirstError($attribute)
+    {
+        return $this->errors[$attribute][0] ?? false;
+    }
 }
