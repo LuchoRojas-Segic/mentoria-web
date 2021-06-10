@@ -72,11 +72,11 @@ abstract class Model
 
         foreach ($params as $key => $param){
             //{{}} quita expresiones como las {}
-            $message = str_replace("{{$key}}", $param, $message);
+           // $message = str_replace("{{$key}}", $param, $message);
 
 
             var_dump($params);
-            var_dump($param);
+            //var_dump($param);
             exit;
         }
 
