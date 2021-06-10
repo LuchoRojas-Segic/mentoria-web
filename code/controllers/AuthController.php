@@ -17,10 +17,10 @@ class AuthController extends Controller
     public function register(Request $request)
     {       
         $this->setLayout('auth');
+        $registerModel = new RegisterModel();
 
         if ($request->isPost()) { 
-            $registerModel = new RegisterModel();
-
+            
             //var_dump($request->getBody());
 
             $registerModel->loadData($request->getBody());  
@@ -30,12 +30,10 @@ class AuthController extends Controller
                 return 'Success';
             }
             
-            echo "<pre>";
-            var_dump ($registerModel);
-            return "Procesando datos del formulario";
-            echo "<pre>";
         }    
-        return $this->render('register'); 
+        return $this->render('register', [
+            'model' => $registerModel
+        ]); 
     }
 
 }

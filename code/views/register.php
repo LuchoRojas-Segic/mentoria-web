@@ -2,11 +2,11 @@
 <form method="POST">
   <div class="mb-3">
     <label class="form-label">Firstname</label>
-    <input type="text" name="firstname" class="form-control">
+    <input type="text" name="firstname" value ="<?=$model->firstname?>" class="form-control">
   </div>
   <div class="mb-3">
     <label class="form-label">Lastname</label>
-    <input type="text" name="lastname" class="form-control">
+    <input type="text" name="lastname" value ="<?=$model->lastname?>" class="form-control">
   </div> 
   <div class="mb-3">
     <label class="form-label">Email</label>
