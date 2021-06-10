@@ -37,7 +37,7 @@ abstract class Model
                     $rulename = $rule[0];
                 }
 
-                if ($rulename === self::RULE_REQU09/06/2021IRED && !$value){
+                if ($rulename === self::RULE_REQUIRED && !$value){
                     //agregar error
                     $this->addError($attribute, self::RULE_REQUIRED, $rule);
                 }
