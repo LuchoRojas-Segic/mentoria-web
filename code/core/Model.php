@@ -82,7 +82,7 @@ abstract class Model
     {
         return[
             self::RULE_REQUIRED => 'This field is required',
-            self::RULE_MAIL => 'This field must be an email',
+            self::RULE_EMAIL => 'This field must be an email',
             self::RULE_MIN => 'Min length of the field must be {min}',
             self::RULE_MAX => 'Max length of the field must be {max}',
             self::RULE_MATCH => 'This fields must be same as {attribute}',
