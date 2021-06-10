@@ -37,7 +37,7 @@ abstract class Model
                     $rulename = $rule[0];
                 }
 
-                if ($rulename === self::RULE_REQUIRED && !$value){
+                if ($rulename === self::RULE_REQU09/06/2021IRED && !$value){
                     //agregar error
                     $this->addError($attribute, self::RULE_REQUIRED, $rule);
                 }
@@ -70,9 +70,17 @@ abstract class Model
     {
         $message = $this->errorMessages()[$rule] ?? '';
 
+        var_dump($params);
+        var_dump($param);
+
         foreach ($params as $key => $param){
             //{{}} quita expresiones como las {}
             $message = str_replace("{{$key}}", $param, $message);
+
+
+            var_dump($params);
+            var_dump($param);
+            exit;
         }
 
         $this->errors[$attribute][] = $message;
