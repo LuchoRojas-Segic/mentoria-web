@@ -70,9 +70,6 @@ abstract class Model
     {
         $message = $this->errorMessages()[$rule] ?? '';
 
-        var_dump($params);
-        var_dump($param);
-
         foreach ($params as $key => $param){
             //{{}} quita expresiones como las {}
             $message = str_replace("{{$key}}", $param, $message);
