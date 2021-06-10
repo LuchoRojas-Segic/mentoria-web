@@ -39,34 +39,45 @@ abstract class Model
 
                 if ($rulename === self::RULE_REQUIRED && !$value){
                     //agregar error
-                    $this->addError($attribute, self::RULE_REQUIRED);
+                    $this->addError($attribute, self::RULE_REQUIRED, $rule);
                 }
               
-                if ($rulename === self::RULE_EMAIL && filTer_var($value, FILTER_VALIDATE_EMAIL)){
+                if ($rulename === self::RULE_EMAIL && !filter_var($value, FILTER_VALIDATE_EMAIL)){
                     //agregar error
-                    $this->addError($attribute, self::RULE_EMAIL);
+                    $this->addError($attribute, self::RULE_EMAIL, $rule);
                 }    
 
                 if ($rulename === self::RULE_MIN && strlen($value) < $rule['min']){
                     //agregar error
-                    $this->addError($attribute, self::RULE_MIN);
+                    $this->addError($attribute, self::RULE_MIN, $rule);
                 }  
 
                 if ($rulename === self::RULE_MAX && strlen($value) > $rule['max']){
                     //agregar error
-                    $this->addError($attribute, self::RULE_MAX);
+                    $this->addError($attribute, self::RULE_MAX, $rule);
+                }  
+
+                if ($rulename === self::RULE_MATCH && $value != $this->{$rule['match']}){
+                    //agregar error
+                    $this->addError($attribute, self::RULE_MATCH, $rule);
                 }  
             }
         }
 
         return empty($this->errors);
     }
-    public function addError($attribute, $rule)
+    public function addError($attribute, $rule, $params = [])
     {
         $message = $this->errorMessages()[$rule] ?? '';
 
-        $this->errors[$attribute] = $message;
+        foreach ($params as $key => $param){
+            //{{}} quita expresiones como las {}
+            $message = str_replace("{{$key}}", $param, $message);
+        }
+
+        $this->errors[$attribute][] = $message;
     }
+
     public function errorMessages()
     {
         return[
