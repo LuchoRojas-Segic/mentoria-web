@@ -76,7 +76,7 @@ abstract class Model
 
 
             var_dump($params);
-            //var_dump($param);
+            var_dump($param);
             exit;
         }
 
