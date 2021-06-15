@@ -2,6 +2,8 @@
 
 namespace app\core\widgets;
 
+use app\core\Model;
+
 class Field
 {
     public const TYPE_TEXT = 'text';

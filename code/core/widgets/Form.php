@@ -2,6 +2,8 @@
 
 namespace app\core\widgets;
 
+use app\core\Model;
+
 class Form 
 {
     public static function begin($action, $method)
