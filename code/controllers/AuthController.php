@@ -29,6 +29,8 @@ class AuthController extends Controller
             if ($registerModel->validate() && $registerModel->save())  {
                 return 'Success';
             }
+
+            //return "Procesando datos del formulario";
             
         }    
         return $this->render('register', [
