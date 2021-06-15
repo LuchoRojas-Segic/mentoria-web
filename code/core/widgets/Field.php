@@ -49,7 +49,7 @@ class Field
         return $this;
     }
 
-    public function mailField
+    public function mailField()
     {
         $this->Type = self::TYPE_MAIL;
         return $this;
