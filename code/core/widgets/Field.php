@@ -30,9 +30,8 @@ class Field
             <input type="%s" name="%s" value ="%s" class="form-control %s>
     
             <div class="invalid-feedback">
-             %s   
-            </div>
-    
+                %s   
+            </div>    
         </div>
         ',
         $this->attribute,
@@ -41,7 +40,7 @@ class Field
         $this->model->{$this->attribute}, //$this->model->firtname
         $this->model->hasError($this->attribute) ? 'is-invalid' : '',
         $this->model->getFirstError($this->attribute)
-    );
+         );
     }
     public function passwordField()
     {
