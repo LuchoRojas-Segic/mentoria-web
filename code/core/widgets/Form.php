@@ -12,7 +12,7 @@ class Form
 
     public static function end()
     {
-        echo '</form>'
+        echo '</form>';
     }
 
     public function field(Model $model, string $attribute)
