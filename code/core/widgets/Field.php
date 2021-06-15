@@ -18,7 +18,7 @@ class Field
     public function __construct(Model $model, string $attribute)
     {
         $this->model = $model;
-        $this->attirbute = $attribute;
+        $this->attribute = $attribute;
         $this->type = self::TYPE_TEXT;
     }
 
