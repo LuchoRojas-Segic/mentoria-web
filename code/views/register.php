@@ -10,7 +10,8 @@
     </div>
   </div>  
   <?= $form->field($model, 'email')->mailField() ?>
-
+  <?= $form->field($model, 'password')->passwordField() ?>
+  <?= $form->field($model, 'confirmPassword')->passwordField() ?>
 
   <button type="submit" class="btn btn-primary">Save</button>
 
