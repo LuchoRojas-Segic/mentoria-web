@@ -1,11 +1,14 @@
 <h1>Register</h1>
 
 <?php $form = \app\core\widgets\Form::begin('','POST') ?>
-  <?= $form->field($model, 'firstname') ?>
-  <?= $form->field($model, 'lastname') ?>
-  <?= $form->field($model, 'email')->mailField() ?>
-  <?= $form->field($model, 'password')->passwordField() ?>
-  <?= $form->field($model, 'confirmPassword')->passwordField() ?>
+  <div class="row">
+    <div class="col">
+      <?= $form->field($model, 'firstname') ?>
+    </div>
+    <div class="col">
+      <?= $form->field($model, 'lastname') ?>
+    </div>
+  </div>  
 
   <button type="submit" class="btn btn-primary">Save</button>
 
