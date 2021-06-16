@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '068ed2f39930a65dc4cfb481637309eb453d0176',
+    'reference' => 'bcc040aba8054ab904fb56f45e5cb0ec0eef2340',
     'name' => 'luchazo/phpmvc-framework',
   ),
   'versions' => 
@@ -27,7 +27,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '068ed2f39930a65dc4cfb481637309eb453d0176',
+      'reference' => 'bcc040aba8054ab904fb56f45e5cb0ec0eef2340',
     ),
     'phpoption/phpoption' => 
     array (

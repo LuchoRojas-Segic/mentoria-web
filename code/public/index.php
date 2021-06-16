@@ -9,7 +9,7 @@ use app\core\Application;
 //echo "<br>";
 //echo dirname(__DIR__);
 
-/*$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 $config = [
@@ -18,7 +18,7 @@ $config = [
         'user' => $_ENV['USERNAME'],
         'password' => $_ENV['PASSWORD'],
     ]
- ];*/
+ ];
 
 $app = new Application(dirname(__DIR__), $config);
 
