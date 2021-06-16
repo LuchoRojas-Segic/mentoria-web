@@ -9,6 +9,8 @@
       <?= $form->field($model, 'lastname') ?>
     </div>
   </div>  
+  <?= $form->field($model, 'email')->mailField() ?>
+
 
   <button type="submit" class="btn btn-primary">Save</button>
 
