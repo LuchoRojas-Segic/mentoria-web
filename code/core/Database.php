@@ -27,7 +27,7 @@ class Database
         $this->pdo->exec("CREATE TABLE IF NOT EXISTS `migrations` ( `id` INT NOT NULL AUTO_INCREMENT , `migration` VARCHAR(255) NOT NULL , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB; ");
     }
 
-    public function getAppliedMigrations();
+    public function getAppliedMigrations()
     {
         $sql = "SELECT migration FROM migrations";
         $statement = $this->pdo->prepare($sql);
