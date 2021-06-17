@@ -42,7 +42,7 @@ class Database
         if (!empty($newMigtarions)){
             $this->saveMigrations($newMigrations);
         } else {
-            echo "all migrations has been applied";
+            echo "All migrations has been applied\n";
         }
 
     }
