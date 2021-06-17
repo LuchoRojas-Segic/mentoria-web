@@ -35,6 +35,14 @@ class Database
             echo "Applying migration $migration\n";
             $instance->up();
             echo "Applied migration $migration\n";
+
+            $newMigrations[] = $migration;
+        }
+
+        if (!empty($newMigtarions)){
+            $this->saveMigrations($newMigrations);
+        } else {
+            echo "all migrations has been applied";
         }
 
     }
@@ -51,5 +59,15 @@ class Database
         $statement->execute();
 
         return $statement->fetchAll(\PDO::FETCH_COLUMN);
+    }
+
+    public function saveMigrations(array $newMigrations)
+    {
+        //fn--- funcion
+
+        //Implode ---- une arreglos con separador
+        $values = implode(',',array_map(fn($m) => "('$m')", $newMigrations), $newMigrations);
+        $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $values");
+        $statement->execute();        
     }
 }
