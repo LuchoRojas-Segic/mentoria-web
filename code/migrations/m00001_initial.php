@@ -4,11 +4,11 @@ class m00001_initial
 {
     public function up()
     {
-        echo "Applying migration";
+        echo "Applying migration\n";
     }
 
     public function down()
     {
-        echo "Reversing migration";
+        echo "Reversing migration\n";
     }
 }

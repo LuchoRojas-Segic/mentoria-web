@@ -22,11 +22,21 @@ class Database
         $appliedMigrations = $this->getAppliedMigrations();
 
         $files = scandir(Application::$ROOT_DIR . '/migrations');
+        $toApplyMigrations = array_diff($appliedMigrations, $files);
 
-        echo '<pre>';
-        var_dump($files);
-        echo '</pre>';
-        exit;
+        foreach($toApplyMigrations  as $migration) {
+            if ($migration === '.' || $migration === '..'){
+                continue;
+            }
+
+            require_once Application::$ROOT_DIR . '/migrations' . $migration;
+            $className = pathinfo($migration, PATHINFO_FILENAME);
+            $instance = new $className();
+            echo "Applying migration $migration\n";
+            $instance->up();
+            echo "Applied migration $migration\n";
+        }
+
     }
 
     public function createMigrationsTable()
