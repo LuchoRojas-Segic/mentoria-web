@@ -29,7 +29,7 @@ class Database
                 continue;
             }
 
-            require_once Application::$ROOT_DIR . '/migrations' . $migration;
+            require_once Application::$ROOT_DIR . '/migrations/' . $migration;
             $className = pathinfo($migration, PATHINFO_FILENAME);
             $instance = new $className();
             echo "Applying migration $migration\n";
