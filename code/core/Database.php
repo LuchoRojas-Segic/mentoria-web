@@ -68,6 +68,10 @@ class Database
         //Implode ---- une arreglos con separador
         $values = implode(',',array_map(fn($m) => "('$m')", $newMigrations));
         $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $values");
-        $statement->execute();        
+        $statement->execute();   
+        
+        $values = implode(',',array_map(fn($m) => "('$m')", $newMigrations));
+        $statement = $this->pdo->prepare ("INSERT INTO migrations (migration) VALUES $values");
+        $statement->execute();
     }
 }
