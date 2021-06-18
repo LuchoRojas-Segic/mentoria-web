@@ -40,7 +40,7 @@ class Database
             $newMigrations[] = $migration;
         }
 
-        if (!empty($newMigtarions)){
+        if (!empty($newMigrations)){
             $this->saveMigrations($newMigrations);
         } else {
             echo "All migrations has been applied\n";
