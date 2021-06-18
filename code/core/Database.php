@@ -19,6 +19,7 @@ class Database
     public function applyMigrations()
     {
         $this->createMigrationsTable();
+        $newMigrations = []; 
         $appliedMigrations = $this->getAppliedMigrations();
 
         $files = scandir(Application::$ROOT_DIR . '/migrations');
@@ -47,6 +48,7 @@ class Database
 
     }
 
+
     public function createMigrationsTable()
     {
         $this->pdo->exec("CREATE TABLE IF NOT EXISTS `migrations` ( `id` INT NOT NULL AUTO_INCREMENT , `migration` VARCHAR(255) NOT NULL , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB; ");
@@ -64,14 +66,14 @@ class Database
     public function saveMigrations(array $newMigrations)
     {
         //fn--- funcion
-
+        var_dump($newMigrations);
         //Implode ---- une arreglos con separador
         $values = implode(',',array_map(fn($m) => "('$m')", $newMigrations));
+
+        echo "values:" . $values;
         $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $values");
         $statement->execute();   
         
-        $values = implode(',',array_map(fn($m) => "('$m')", $newMigrations));
-        $statement = $this->pdo->prepare ("INSERT INTO migrations (migration) VALUES $values");
-        $statement->execute();
     }
+
 }
