@@ -66,11 +66,8 @@ class Database
     public function saveMigrations(array $newMigrations)
     {
         //fn--- funcion
-        var_dump($newMigrations);
         //Implode ---- une arreglos con separador
         $values = implode(',',array_map(fn($m) => "('$m')", $newMigrations));
-
-        echo "values:" . $values;
         $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES $values");
         $statement->execute();   
         
