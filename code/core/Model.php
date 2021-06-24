@@ -2,6 +2,7 @@
 
 namespace app\core;
 
+//No van a crearse objetos desde esta clase por el hecho de ser Abstract
 abstract class Model
 {
     public const RULE_REQUIRED = 'required';

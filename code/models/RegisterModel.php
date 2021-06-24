@@ -2,9 +2,11 @@
 
 namespace app\models;
 
-use app\core\Model;
+//use app\core\Model;
+use app\core\DbModel;
 
-class RegisterModel extends Model
+//class RegisterModel extends Model
+class RegisterModel extends DbModel
 {
     public string $firstname = '';
     public string $lastname = '';
@@ -12,9 +14,14 @@ class RegisterModel extends Model
     public string $password = '';
     public string $confirmPassword = '';
 
-    public function save()
+    public function tableName(): string
     {
+        return 'users';
+    }
 
+    public function save()
+    {   //Llama al save del Padre
+        parent::save();
     }
 //typeHint
 //Se crea function rules y se devuelve un array
@@ -28,4 +35,16 @@ class RegisterModel extends Model
             'confirmPassword' => [self::RULE_REQUIRED,[self::RULE_MATCH, 'match' => 'password']],
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'firstname',
+            'lastname',
+            'email',
+            'password'
+
+        ];
+    }
+
 }
