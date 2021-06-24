@@ -21,7 +21,7 @@ class RegisterModel extends DbModel
 
     public function save()
     {   //Llama al save del Padre
-        parent::save();
+        return parent::save();
     }
 //typeHint
 //Se crea function rules y se devuelve un array
