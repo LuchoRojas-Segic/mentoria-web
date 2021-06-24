@@ -20,7 +20,9 @@ class RegisterModel extends DbModel
     }
 
     public function save()
-    {   //Llama al save del Padre
+    {   
+        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+        //Llama al save del Padre
         return parent::save();
     }
 //typeHint
