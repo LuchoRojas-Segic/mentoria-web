@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\File;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 
-class Post 
+class Post
 {
     public string $title;
     public string $resumen;
@@ -18,12 +18,12 @@ class Post
     {
         $this->title = $title;
         $this->resumen = $resumen;
-        $this->date = $date;
-        $this->slug = $slug;
+        $this->date = $date;        
+        $this->slug = $slug; 
         $this->body = $body;
     }
 
-    public static function createFromDocuemnt($document)
+    public static function createFromDocument($document)
     {
         return new self(
             $document->title,
@@ -33,53 +33,69 @@ class Post
             $document->body()
         );
     }
-     
 
     public static function all()
     {
-        //Devuelve una info de los archivos
         //return File::files(resource_path("posts/"));
-        //$files = File::files(resource_path("posts/"));
-        //return array_map(fn($file) => $file->getContents(), $files);    
+        /*$files = File::files(resource_path("posts/"));
 
-        return collect(File::files(resource_path("posts/")))
-                    ->map(fn ($file) => YamlFrontMatter::parseFile($file))
-                    ->map(fn ($document) => Post::createFromDocuemnt($document));
+        //sin arrow
+        return array_map(function($file) {
+            return $file->getContents();
+        }, $files);
+
+        //Con arrow
+        return array_map(fn ($file) => $file->getContents(), $files);*/
+
+        return collect(File::files(resource_path("posts/")))             
+            ->map(fn ($file) => YamlFrontMatter::parseFile($file))                
+            ->map(fn ($document) => Post::createFromDocument($document));  
     }
 
     public static function find($slug)
     {
-        //$path = __DIR__ . "/../resources/posts/$slug.html";
-        //$path = resource_path("posts/{$slug}.html");
-
-        //return __DIR__;
-        //los dd y ddd son paea DEPURAR
-        //dump and die
-        //dd($slug);
+        //return $slug;
         //dump and die and debug
-        //ddd($slug);  
+        //dd($_SERVER);
+        //ddd($_SERVER);
 
-        //$post = static::all()->firstWhere('slug',$slug);
+        //$path = __DIR__ . "/../resources/posts/$slug.html";
+        //$path = resource_path("posts/$slug.html");
+
+        //$post = static::all()->firstWhere('slug', $slug);
         //return $post;
 
-        //cache()->remember("indice", "caducidad", callback => lo que vamos a guardar)
-        return cache()->remember("post.{$slug}",now()->addDays(1), fn () => static::all()->firstWhere('slug',$slug));
-        
-        //if(!file_exists($path)) {
-         //if(!file_exists( $path = resource_path("posts/{$slug}.html"))) {
+        //cache()->remember("indice", "caducidad", "callback => lo que vamos a guardar")
+
+        return cache()->remember("post.{$slug}", now()->addDays(1), fn ()=> static::all()->firstWhere('slug', $slug));
+        //ddd($posts->firstWhere('slug', $slug));
+
+        //if (!file_exists($path)) {
+        /*if (!file_exists($path = resource_path("posts/$slug.html"))) {
+            //Esto se utiliza en los controladores no en el modelo
+            //abort(404);
             //return redirect('/');
-         //   throw new ModelNotFoundException();            
-        //}
-    //Para refrescar el CACHE de una página
-        /*$post = cache()->remember("post.{slug}", 5, function() use($path) {
+            throw new ModelNotFoundException();
+        }*/
+        //Forma tradicional de hacerlo
+        /*$post = cache()->remember("post.{$slug}", 5, function() use($path){
             var_dump('file_get_contents');
             return file_get_contents($path);
         });*/
-        //Otra forma de hacerlo con Arrow
-        //now()->addDays(3)
-        //return cache()->remember("post.{$slug}", 1000, fn() => file_get_contents($path));
-    
-    //
+        
+        //Forma con arrow
+        //$post = cache()->remember("post.{$slug}", 5, fn () => file_get_contents($path));
+        //now()->addHours(3)
+        //$post = cache()->remember("post.{$slug}", 5, fn () => file_get_contents($path));
+        //return cache()->remember("post.{$slug}", 1000, fn () => file_get_contents($path));
+
+        //  Esto se hace en los controladores no en el modelo
+        /*return view('post', [
+            //'post' => file_get_contents($path),
+            'post' => $post,
+        ]);*/
 
     }
+
 }
+

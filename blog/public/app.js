@@ -1,1 +1,1 @@
-alert('Un mensaje muy importante')
+console.log("Un mensaje muy importante")

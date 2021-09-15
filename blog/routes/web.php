@@ -1,8 +1,8 @@
 <?php
 
 use App\Models\Post;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,19 +16,22 @@ use Illuminate\Support\Facades\File;
 */
 
 Route::get('/', function () {
-
     //return view('welcome');
 
-    //$document = YamlFrontMatter::parseFile(
-    //    resource_path('posts/my-first-post.html')
-    //);
+    //$posts = Post::all();
+    //ddd($posts);
+
+    /*$document = YamlFrontMatter::parseFile(
+        resource_path('posts/my-first-post.html')
+    );*/
     //ddd($document);
     //ddd($document->matter('title'));
+
     //$files = File::files(resource_path("posts/"));
     //$posts = [];
 
-    //1ra forma de realizar
-    /*foreach($files as $file) {
+   //1ra forma tradicional de hacerlo
+    /* foreach ($files as $file) {
         $document = YamlFrontMatter::parseFile($file);
         $posts[] = new Post(
             $document->title,
@@ -37,12 +40,13 @@ Route::get('/', function () {
             $document->body()
         );
     }*/
+    //ddd($documents);
     //ddd($posts);
 
-    //2da forma de realizar
-    /*$posts = array_map(function($file) {
+    //2da forma tradicional de hacerlo con array_map
+    /*$posts = array_map(function($file) { 
         $document = YamlFrontMatter::parseFile($file);
-        return new Post(
+        return  new Post(
             $document->title,
             $document->resumen,
             $document->date,
@@ -50,20 +54,31 @@ Route::get('/', function () {
         );
     }, $files);*/
 
-    //3ra forma de realizar
-    /*$posts = collect(File::files(resource_path("posts/")))
-                ->map(fn ($file) => YamlFrontMatter::parseFile($file))
-                ->map(fn ($document) => Post::createFromDocuemnt($document));*/
+    //3ra forma tradicional de hacerlos con las Collection
+    //$posts = collect(File::files(resource_path("posts/")))
+                /*->map(function($file){
+                    return YamlFrontMatter::parseFile($file);
+                })
+                    ->map(function($document){
+                    //$document = YamlFrontMatter::parseFile($file);
+                    return  new Post(
+                        $document->title,
+                        $document->resumen,
+                        $document->date,
+                        $document->body()
+                    );
+                });*/
+                //Lo mismo de arriba pero con arrow
+                //->map(fn ($file) => YamlFrontMatter::parseFile($file))                
+                //->map(fn ($document) => Post::createFromDocument($document));
 
-    /*$posts = cache()->rememberForever('posts.all', function() {
-        return collect(File::files(resource_path("posts/")))
-        ->map(fn ($file) => YamlFrontMatter::parseFile($file))
-        ->map(fn ($document) => Post::createFromDocuemnt($document));                       
-
-    });*/
-    //Con arrow
-    $posts = cache()->rememberForever('posts.all', fn() => Post::all());
-                     
+                $posts = cache()->rememberForever(
+                    'posts.all', //Esto es el indice
+                    fn () => Post::all()                  
+                    /*collect(File::files(resource_path("posts/")))             
+                        ->map(fn ($file) => YamlFrontMatter::parseFile($file))                
+                        ->map(fn ($document) => Post::createFromDocument($document))*/                    
+                );
 
     return view('posts', [
         //'posts' => Post::all()
@@ -71,21 +86,14 @@ Route::get('/', function () {
     ]);
 });
 
-/*Route::get('/post', function () {
-    //return view('welcome');
-    return view('post');
-});*/
-
-//Route::get('/', fn ()  => view('welcome'));
-//Route::get('/', fn ()  => 'Hola Segic');
-
-//Lo siguiente entregará un JSON
-//Route::get('/', fn ()  => [7, 'url' => 'http://segic.cl']);
-
-Route::get('/post/{post}', function ($slug) {  
+Route::get('/post/{post}', function ($slug) {
     return view('post', [
         'post' => Post::find($slug),
     ]);
-    //Lo que viene abajo son Expresiones Regulares
-    //Que son utilizadas en Contrain
-})->where('post','[A-Za-z\_-]+');
+})->where ('post','[A-Za-z\-_]+'); //Constrains con expresiones regulares
+
+//Route::get('/', fn () => view('welcome'));
+//Route::get('/', fn () => 'Hola SEGIC');
+//Lo siguiente entregará un JSON
+//Route::get('/', fn () => ['id' => 7, 'url' => 'http://www.segic.cl']);
+
