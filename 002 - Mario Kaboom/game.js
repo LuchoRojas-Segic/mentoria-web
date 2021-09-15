@@ -21,6 +21,12 @@ loadSprite('pipe-top-right', 'assets/pipe-top-right.png')
 loadSprite('pipe-bottom-left', 'assets/pipe-bottom-left.png')
 loadSprite('pipe-bottom-right', 'assets/pipe-bottom-right.png')
 
+<<<<<<< HEAD
+=======
+
+loadSound('mario-theme', 'assets/Super_Mario_Bros.mp3')
+
+>>>>>>> 691cb887933ccaa42a061ccc15fdf30638a09abe
 const MOVE_SPEED = 120
 const ENEMY_SPEED = 20
 const MUSHROOM_SPEED = 20
@@ -75,11 +81,24 @@ scene("game", () => {
         origin('bot')
     ])
 
+<<<<<<< HEAD
+=======
+    const music = play("mario-theme") 
+
+    /*Esta definición es en PHP
+    class Mario {
+        public function getBigger() {
+
+        }
+    }*/
+    //Esta definición es en JavaScript
+>>>>>>> 691cb887933ccaa42a061ccc15fdf30638a09abe
     function big() {
         //console.log('estamos en big')
         let isBig = false
         return {
             getBigger() {
+<<<<<<< HEAD
                  isBig = true
                 this.scale = vec2(1)
             },
@@ -87,6 +106,17 @@ scene("game", () => {
         }
     }
 
+=======
+                isBig = true
+                this.scale = vec2(2)
+            },
+            isBig() {
+                return isBig
+            }
+        }
+    }
+    //Se le pasa un callback
+>>>>>>> 691cb887933ccaa42a061ccc15fdf30638a09abe
     keyDown('left', () => {
         player.move(-MOVE_SPEED, 0)
     })
@@ -98,10 +128,19 @@ scene("game", () => {
     keyDown('space', () => {
         if (player.grounded()) {
             isJumping = true
+<<<<<<< HEAD
             if(player.isBig() {
                 player.jump(JUMP_FORCE_BIG)
             })
             player.jump(JUMP_FORCE)
+=======
+            if(player.isBig()) {
+                player.jump(JUMP_FORCE_BIG)
+            } else {
+                player.jump(JUMP_FORCE)
+            }
+            
+>>>>>>> 691cb887933ccaa42a061ccc15fdf30638a09abe
         }
     })     
     
@@ -109,11 +148,19 @@ scene("game", () => {
         if (obj.is('coin-surprise')) {
             gameLevel.spawn('$', obj.gridPos.sub(0, 1))
             destroy(obj)
+<<<<<<< HEAD
             gameLevel.spawn('}', obj.gridPos.sub(0, 1))
         }else if (obj.is('mushroom-surprise')) {
             gameLevel.spawn('{', obj.gridPos.sub(0, 1))
             destroy(d)
             gameLevel.spawn('}', obj.gridPos.sub(0, 1))
+=======
+            gameLevel.spawn('}', obj.gridPos.sub(0, 0))
+        }else if (obj.is('mushroom-surprise')) {
+            gameLevel.spawn('{', obj.gridPos.sub(0, 1))
+            destroy(obj)
+            gameLevel.spawn('}', obj.gridPos.sub(0, 0))
+>>>>>>> 691cb887933ccaa42a061ccc15fdf30638a09abe
         }
 
     })
@@ -132,6 +179,7 @@ scene("game", () => {
 
     })
 
+<<<<<<< HEAD
     player.collides('dangerous', (d) => {
         if (isJumping) {
             destroy(d)
@@ -144,6 +192,16 @@ scene("game", () => {
     player.collides('mushroom', (d) => {
         destroy(d)
         player.getBigger
+=======
+    player.collides('mushroom', (d) => {
+        destroy(d)
+        player.getBigger()
+    })
+
+    
+    player.collides('coin', (d) => {
+        destroy(d)
+>>>>>>> 691cb887933ccaa42a061ccc15fdf30638a09abe
     })
 
     action('dangerous', (b) => {
