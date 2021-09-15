@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Prueba Javascript</title>
+
+    <style>
+        .square{
+            width: 100px;
+            height: 100px;
+        }
+
+        .red{
+            background-color: red;
+        }
+
+        .blue{
+            background-color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="parentDiv">
+        <div id="squareDiv" class="square red"></div>
+        <button id="changeColorButton">Load Users</button>
+    </div>
+
+    <img id="imgLoad" src="" alt="">
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre Completo</th>
+            </tr>
+        </thead>
+        <tbody id="userTable">
+
+        </tbody>
+
+    </table>
+    <script>
+
+        //Ejemplo de uso de DOM
+        //Event bubbling (burbujeo de eventos)
+        //Ajax
+
+        $('#changeColorButton').click(function(event){
+            $.getJSON( "http://mentoria15.segic.cl/", function(data) {
+                console.log(data);
+
+                let names = data.map((user) => user.firstname + " " + user.lastname);
+                console.log(names);
+                names.forEach(name => {
+                    let trElement = "<tr><td>" + name + "</td></tr>";
+                    $('#userTable').append(trElement);   
+                    $('#userTable > tr').click(function() {
+                       $(this)
+                            .fadeOut("slow", function() {
+                                $(this).remove()
+                            });
+                    })
+                 });
+            });
+        });
+
+
+        /*$('#changeColorButton').click(function(event){
+            $.getJSON( "https://aws.random.cat/meow?ref=public-apis", function(data) {
+            console.log(data);
+            $('#imgLoad')
+                .attr('src',data.file)
+                .fadeIn("slow")
+                .click(function() {
+                    $("#imgLoad").fadeOut("slow");
+                });
+            });        
+        });*/
+
+
+        //Estos son JQuery
+        /*$('#changeColorButton').click(function(event) {
+            //console.log("El terrible click !!!");
+            if ($('#squareDiv').hasClass('red')) {
+                $('#squareDiv')
+                    .removeClass('red')
+                    .addClass('blue')
+            } else {
+                $('#squareDiv')
+                .removeClass('blue')
+                .addClass('red')
+            }
+
+            $("#squareDiv" ).fadeOut( "slow", function() {
+                console.log('termino de desaparecer');
+            });
+
+        });*/
+
+        //document.getElementById('changeColorButton');
+        //let button = document
+        /*document
+            .getElementById('changeColorButton')
+            .addEventListener('click',function(event){
+                event.stopPropagation();
+
+                let divElement = document
+                    .getElementById('squareDiv')
+                
+                if (divElement.classList.contains('red')){
+                    divElement.classList.replace('red','blue');                    
+                } else {
+                    divElement.classList.replace('blue','red');
+                }
+            });
+
+        document
+            .getElementById('parentDiv')
+            .addEventListener('click',function(event){
+                console.log('yeah baby');
+            });    */    
+
+        ///Para la proxima clase/////////////////
+        //DOM prox clase
+        //Document Object Model
+        //biblioteca axios y jquery (Yii)
+        //juego
+        ///Para la proxima clase/////////////////
+
+        /////////////////////////////////////////
+        //Introducción a Java Script
+
+        //alert('hola mundo');
+        //var greeting= 'Hola Mundo desde variable';
+        //alert(greeting);
+
+         //var edad = 70;
+         //let nombre = 'Juan Perez';
+
+        // //altert detiene ejecución
+         //if (edad <= 60){
+         //    alert("Eres super joven");
+         //} else {
+         //    alert("Te queda poco");
+         //}
+
+         //console.log(nombre);
+         //console.error("Oops algo paso");
+
+        // //largodel nombre
+        // console.log(nombre.length);
+         //console.log(nombre.slice(5,10));//Perez
+         //console.log(nombre.replace('Perez','Martinez'));//
+        
+        ////////////////////////////////////////////////
+        //Dentro de los arreglos van los Objetos y estos se escribirán en JS como Json
+        var tasks = [
+            {   
+                "name":"Estudiar Javascript",
+                "duration":60
+            },
+            {   
+                "name":"Estudiar vue",
+                "duration":150
+            },
+            {   
+                "name":"Estudiar Laravel",
+                "duration":100
+            }
+           
+        ];        
+
+        //console.log(tasks);
+
+        //let taskNames = [];
+        //solucion:1
+        /* for (let i=0; i < tasks.length; i++){
+             taskNames.push(tasks[i].name);
+             //console.log(tasks[i]);
+
+         }
+         console.log(taskNames);*/
+
+        //solucion:2
+        //version con callback: funcion ejecutable que se pasa como parametro
+         /*tasks.forEach(function(task){
+             taskNames.push(task.name);
+         })
+         console.log(taskNames);*/
+
+        //solucion 3
+        //***********map transformacion de un arreglo **************************
+        //map(ejecuta un callback sobre cada elemento),filter,reduce
+        //arrow function  JS PHP Dart
+        //(parametros) => return devuelve
+         //let taskNames = tasks.map((task)=> task.name);
+         //console.log(taskNames);
+
+        //**********Filtrar datos bajo un criterio*********
+        //solucion sin filter
+         /*let difficulTasks=[];
+         tasks.forEach(function(task){
+             if (task.duration >= 100){
+                 difficulTasks.push(task.name);
+             }
+         })
+         console.log(difficulTasks); */
+
+        //solucion confilter
+         /*let difficulTasks=tasks.filter(function(task){
+             return task.duration >=100;
+         });
+         console.log(difficulTasks);*/
+
+        //mejora al anterior
+        /*let difficulTasks=tasks
+            .filter((task) => task.duration >=100)
+            .map((task) => task.name);
+            console.log(difficulTasks);            
+
+        let nombre = "Juan Perez";
+        
+        //concatenaciones con +
+        console.log('Hola,' + nombre.toUpperCase());*/
+
+        //Sirve para eliminar elementos
+        /*let frutas = ['Manzana','Peras','Naranjas','Platanos'];
+        let frutasEliminadas = frutas.splice(1,1,'Uva')
+        frutas.splice(1,1);
+        console.log(frutasEliminadas);*/
+
+    </script>
+</body>
+</html>
