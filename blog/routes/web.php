@@ -72,12 +72,16 @@ Route::get('/', function () {
                 //->map(fn ($file) => YamlFrontMatter::parseFile($file))                
                 //->map(fn ($document) => Post::createFromDocument($document));
 
-                $posts = cache()->rememberForever(
-                    'posts.all', //Esto es el indice
-                    fn () => Post::all()                  
+                ////
+                //$posts = cache()->rememberForever('posts.all', //Esto es el indice
+                //    fn () => Post::all()                  
+                ////
+                
                     /*collect(File::files(resource_path("posts/")))             
                         ->map(fn ($file) => YamlFrontMatter::parseFile($file))                
                         ->map(fn ($document) => Post::createFromDocument($document))*/                    
+                
+                        $posts = Post::all();
                 );
 
     return view('posts', [
