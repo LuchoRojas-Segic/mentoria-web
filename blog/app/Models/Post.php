@@ -11,5 +11,5 @@ class Post extends Model
     use HasFactory;
 
     //public $fillable = ['title', 'resumen', 'body'];
-    public $guarded = [];
+    public $guarded = ['id']; //al menos debe tener el id
 }
