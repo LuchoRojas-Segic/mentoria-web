@@ -92,9 +92,11 @@ Route::get('/', function () {
 });
 
 //Route::get('/post/{post}', function ($slug) {   Se cambia id por slug
-Route::get('/post/{post}', function ($id) {
+//Route::get('/post/{post}', function ($id) {
+Route::get('/post/{post}', function (Post $post) {
     return view('post', [
-        'post' => Post::findOrFail($id),
+        //'post' => Post::findOrFail($id),
+        'post' => $post,
     ]);
 //})->where ('post','[A-Za-z\-_]+'); //Constrains con expresiones regulares
 }); //Ya no va lo anterior ya que se contrala por id
