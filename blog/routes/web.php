@@ -83,7 +83,7 @@ Route::get('/', function () {
                 
                         
                // );
-               
+
     $posts = Post::all();
     return view('posts', [
         //'posts' => Post::all()
@@ -91,11 +91,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/post/{post}', function ($slug) {
+//Route::get('/post/{post}', function ($slug) {   Se cambia id por slug
+Route::get('/post/{post}', function ($id) {
     return view('post', [
-        'post' => Post::find($slug),
+        'post' => Post::findOrFail($id),
     ]);
-})->where ('post','[A-Za-z\-_]+'); //Constrains con expresiones regulares
+//})->where ('post','[A-Za-z\-_]+'); //Constrains con expresiones regulares
+}); //Ya no va lo anterior ya que se contrala por id
 
 //Route::get('/', fn () => view('welcome'));
 //Route::get('/', fn () => 'Hola SEGIC');
