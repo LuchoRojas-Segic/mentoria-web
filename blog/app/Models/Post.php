@@ -9,4 +9,6 @@ class Post extends Model
 {
     //traits es manera de agregar funcionalidad a una clase sin extender de ella
     use HasFactory;
+
+    public $filliable = ['title'];
 }
