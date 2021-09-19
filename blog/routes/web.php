@@ -76,14 +76,15 @@ Route::get('/', function () {
                 //$posts = cache()->rememberForever('posts.all', //Esto es el indice
                 //    fn () => Post::all()                  
                 ////
-                
+
                     /*collect(File::files(resource_path("posts/")))             
                         ->map(fn ($file) => YamlFrontMatter::parseFile($file))                
                         ->map(fn ($document) => Post::createFromDocument($document))*/                    
                 
-                        $posts = Post::all();
-                );
-
+                        
+               // );
+               
+    $posts = Post::all();
     return view('posts', [
         //'posts' => Post::all()
         'posts' => $posts
