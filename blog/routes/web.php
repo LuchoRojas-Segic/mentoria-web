@@ -93,7 +93,7 @@ Route::get('/', function () {
 
 //Route::get('/post/{post}', function ($slug) {   Se cambia id por slug
 //Route::get('/post/{post}', function ($id) {
-Route::get('/post/{post:slug}', function (Post $post) {
+Route::get('/post/{post}', function (Post $post) {
     return view('post', [
         //'post' => Post::findOrFail($id),
         'post' => $post,

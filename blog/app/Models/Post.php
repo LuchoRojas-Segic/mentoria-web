@@ -12,4 +12,11 @@ class Post extends Model
 
     //public $fillable = ['title', 'resumen', 'body'];
     public $guarded = ['id']; //al menos debe tener el id
+
+    //Esta en la 2da forma de llamar a un slug, y se quita en la Route
+    //Route::get('/post/{post}'
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
