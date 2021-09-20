@@ -87,10 +87,11 @@ Route::get('/', function () {
                     logger($query->sql, $query->bindings);
                 });
 
-    $posts = Post::all();
+    //$posts = Post::all();
     return view('posts', [
         //'posts' => Post::all()
-        'posts' => $posts
+        //'posts' => $posts
+        'posts' => Post::with('category')->get()
     ]);
 });
 

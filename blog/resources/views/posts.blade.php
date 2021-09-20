@@ -19,7 +19,7 @@
                     {{$post->category->name}}
                     </a>
                 </p>
-                <p><?= $post->resumen ?>/p>
+                <p><?= $post->resumen ?></p>
             </article>
         @endforeach
     @else
