@@ -20,10 +20,10 @@ class Post extends Model
         return 'slug';
     }
 
-    // hasOne, hasMany, belogTo, belongToMany ----- Relaciones en Laravel (relations)
+    // hasOne, hasMany, belongsTo, belongsToMany ----- Relaciones en Laravel (relations)
 
     public function category()
     {                       //  \\App\Models\Category
-        return $this->belongTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }
