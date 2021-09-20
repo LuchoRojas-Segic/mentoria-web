@@ -83,6 +83,9 @@ Route::get('/', function () {
                 
                         
                // );
+                \Illuminate\Support\Facades\DB::listen(function($query){
+                    logger($query->sql);
+                });
 
     $posts = Post::all();
     return view('posts', [
