@@ -28,9 +28,8 @@ class Post extends Model
                              //(modelo que va a devolver esa relations)
     }
 
-    public function user(
-        {
-            return $this->belongsTo(User::class);
-        }
-    )
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
