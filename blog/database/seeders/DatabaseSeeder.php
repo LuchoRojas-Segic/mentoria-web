@@ -17,22 +17,31 @@ class DatabaseSeeder extends Seeder
     {
          User::truncate();
          Category::truncate();
-         
-         User::factory()->create();
 
-         Category::create([
+         $user = User::factory()->create();
+
+         $personal = Category::create([
              'name' => 'Personal',
              'slug' => 'personal'
          ]);
 
-         Category::create([
+         $work = Category::create([
             'name' => 'Work',
             'slug' => 'work'
         ]);
 
-        Category::create([
+        $hobbies = Category::create([
             'name' => 'Hobbies',
             'slug' => 'hobbies'
         ]);
+
+        Post::create([
+            'category_id' => $work->id ,
+            'user_id' => $user->id,
+            'slug' => 'my-first-blog',
+            'title' => 'My first blog',
+            'resumen' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
+            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio libero similique cumque, quod impedit sequi tempore dolore quia nobis commodi minus. Consequatur asperiores iusto officia voluptas porro. Commodi, perspiciatis harum',
+        ])
     }
 }
