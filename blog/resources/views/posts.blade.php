@@ -15,7 +15,7 @@
                     </a>
                 </h1>
                 <p>
-                    <a href="/category/{{$post->category->id}}">
+                    <a href="/category/{{$post->category->slug}}">
                     {{$post->category->name}}
                     </a>
                 </p>
