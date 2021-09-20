@@ -23,7 +23,8 @@ class Post extends Model
     // hasOne, hasMany, belongsTo, belongsToMany ----- Relaciones en Laravel (relations)
 
     public function category()
-    {                       //  \\App\Models\Category
+    {                     //  \\App\Models\Category
         return $this->belongsTo(Category::class);
+                             //(modelo que va a devolver esa relations)
     }
 }
