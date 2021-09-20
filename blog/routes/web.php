@@ -107,9 +107,9 @@ Route::get('/post/{post}', function (Post $post) {
 //Route::get('/', fn () => ['id' => 7, 'url' => 'http://www.segic.cl']);
 
 Route::get('/category/{category}', function (Category $category) {
-    return 'categorias';
-    /*return view('post', [
-        'post' => $post,
-    ]);*/
+    //return 'categorias';
+    return view('post', [
+        'post' => $category->posts,
+    ]);
 
 });
