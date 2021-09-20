@@ -42,6 +42,6 @@ class DatabaseSeeder extends Seeder
             'title' => 'My first blog',
             'resumen' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit',
             'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio libero similique cumque, quod impedit sequi tempore dolore quia nobis commodi minus. Consequatur asperiores iusto officia voluptas porro. Commodi, perspiciatis harum',
-        ])
+        ]);
     }
 }
