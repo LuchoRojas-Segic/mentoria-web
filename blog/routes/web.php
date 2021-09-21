@@ -83,15 +83,17 @@ Route::get('/', function () {
                 
                         
                // );
-                \Illuminate\Support\Facades\DB::listen(function($query){
+               /* \Illuminate\Support\Facades\DB::listen(function($query){
                     logger($query->sql, $query->bindings);
-                });
+                });*/
 
     //$posts = Post::all();
     return view('posts', [
         //'posts' => Post::all()
         //'posts' => $posts
-        'posts' => Post::with('category')->get()
+        'posts' => Post::latest('published_at') //Ordenamiento
+            >with('category')
+            ->get()
     ]);
 });
 
