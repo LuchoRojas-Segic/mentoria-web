@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory; //es un trait, el cual agrega funcionalidad a una clase
  
     // hasOne, hasMany, belongsTo, belongsToMany
     public function posts()
