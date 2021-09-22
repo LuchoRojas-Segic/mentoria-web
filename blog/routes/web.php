@@ -92,7 +92,7 @@ Route::get('/', function () {
         //'posts' => Post::all()
         //'posts' => $posts
         'posts' => Post::latest('published_at') //Ordenamiento
-            ->with(['category','user'])
+            ->with(['category','author'])
             ->get()
     ]);
 });
