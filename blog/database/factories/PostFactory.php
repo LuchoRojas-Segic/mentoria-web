@@ -27,10 +27,11 @@ class PostFactory extends Factory
         return [
             'category_id' => Category::factory(),
             'user_id' => User::factory(),
-            'slug' => $this->faker->unique()->slug(),
+            'slug' => $this->faker->unique()->slug(), //Va con parentesis ya que se recomienda utilizar los metodos mas que los atributos
             'title' =>$this->faker->sentence(),
             'resumen' =>$this->faker->sentence(),
             'body' =>$this->faker->paragraph(),
+            'published_at' => now(),
         ];
     }
 }
