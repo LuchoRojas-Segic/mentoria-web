@@ -116,7 +116,7 @@ Route::get('/post/{post}', function (Post $post) {
 Route::get('/category/{category:slug}', function (Category $category) {
     //return 'categorias';
     return view('posts', [
-        'posts' => $category->posts,
+        'posts' => $category->posts->load(['category', 'author']),
     ]);
 });
 
