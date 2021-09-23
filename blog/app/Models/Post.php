@@ -28,7 +28,7 @@ class Post extends Model
                              //(modelo que va a devolver esa relations)
     }
 
-    //public function user()
+    //public function user() antes era user(), pero se cambia por author y se agrega la llave foranea 'user_id'
     public function author()
     {
         return $this->belongsTo(User::class, 'user_id');
