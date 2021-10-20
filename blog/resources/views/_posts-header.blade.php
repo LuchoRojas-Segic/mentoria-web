@@ -15,13 +15,15 @@
         <!--  Category -->
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
             <div x-data= "{ show: false}">
-                <button @click="show = !show" class="py-2 pl-3 pr-9 text-sm font-semibold">
+                <button @click="show = !show" class="py-2 pl-3 pr-9 text-sm font-semibold inline-flex">
                     Category
                 </button>
+                <div x-show="show" class = "py-2 absolute">
+                    <a href="#" class ="block">One</a>
+                    <a href="#" class ="block">Two</a>
+                    <a href="#" class ="block">Three</a>
+                </div>
 
-                <a href="#" x-show="show">One</a>
-                <a href="#" x-show="show">Two</a>
-                <a href="#" x-show="show">Three</a>
             </div>
         </div>
 
