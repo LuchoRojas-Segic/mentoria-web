@@ -18,10 +18,10 @@
                 <button @click="show = !show" class="py-2 pl-3 pr-9 text-sm font-semibold inline-flex">
                     Category
                 </button>
-                <div x-show="show" class = "py-2 absolute bg-gray-100 w-full mt-2 rounded-xl z-50">
-                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500">Two</a>
-                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500">One</a>
-                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500">Three</a>
+                <div x-show="show" class = "py-2 absolute bg-gray-100 w-full mt-2 rounded-xl z-50 text-left px-3 text-sm">
+                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500 hover:text-white">Two</a>
+                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500 hover:text-white">One</a>
+                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500 hover:text-white">Three</a>
                 </div>
 
             </div>
