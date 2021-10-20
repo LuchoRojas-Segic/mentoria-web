@@ -27,9 +27,11 @@
                     </svg>                    
                 </button>
                 <div x-show="show" class = "py-2 absolute bg-gray-100 w-full mt-2 rounded-xl z-50 text-left px-3 text-sm" style="display:  none;">
-                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500 hover:text-white">Two</a>
-                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500 hover:text-white">One</a>
-                    <a href="#" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500 hover:text-white">Three</a>
+                    @foreach ($categories as $category)
+                    <a href="/category/{{ $category->slug}}" class ="block text-left px-3 text-sm leading-6 hover:bg-blue-500 hover:text-white">
+                        {{ $category->name }}
+                    </a>
+                    @endforeach
                 </div>
 
             </div>
