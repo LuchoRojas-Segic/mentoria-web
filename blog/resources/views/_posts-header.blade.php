@@ -12,7 +12,7 @@
     </p>
 
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8">
-
+        <!--  Category -->
         <div class="relative lg:inline-flex items-center bg-gray-100 rounded-xl">
             <x-dropdown>
                 <x-slot name = "trigger">
@@ -30,13 +30,7 @@
                     </button>
                 </x-slot>
                 
-                @foreach ($categories as $category)
-                    <a href="/category/{{ $category->slug }}"  
-                        class="block text-left px-3 text-sm leading-6 hover:bg-blue-500 hover:text-white  
-                            {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-blue-500 text-white' : '' }}">
-                        {{ ucwords($category->name) }}
-                    </a>
-                @endforeach
+
             </x-dropdown>
 
         </div>
