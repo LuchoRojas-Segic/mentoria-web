@@ -97,7 +97,7 @@ Route::get('/', function () {
             ->get(),
         'categories' => Category::all()
     ]);
-});
+})->name('home');
 
 //Route::get('/post/{post}', function ($slug) {   Se cambia id por slug
 //Route::get('/post/{post}', function ($id) {
