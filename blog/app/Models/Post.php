@@ -20,6 +20,17 @@ class Post extends Model
         return 'slug';
     }
 
+    public function scopeFilter($query)
+    {
+        if (request('search')){
+            //agregar las condiciones de búsqueda
+            //select * from posts where title like '%algo%'
+            return $query->where('title', 'like', '%' . request('search') . '%')
+                ->orwhere('resumen', 'like', '%' . request('search') . '%');
+    
+        }
+    }
+
     // hasOne, hasMany, belongsTo, belongsToMany ----- Relaciones en Laravel (relations)
 
     public function category()
