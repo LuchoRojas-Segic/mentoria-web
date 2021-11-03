@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
@@ -16,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [PostController::class, 'index'])->name('home');
+
     //return view('welcome');
 
     //$posts = Post::all();
@@ -89,23 +91,8 @@ Route::get('/', function () {
                 });*/
 
     //$posts = Post::all();
-    $posts = Post::latest('published_at') //Ordenamiento
-                ->with(['category','author']);
 
-    if (request('search')){
-        //agregar las condiciones de búsqueda
-        //select * from posts where title like '%algo%'
-        $posts->where('title', 'like', '%' . request('search') . '%')
-              ->orwhere('resumen', 'like', '%' . request('search') . '%');
-
-    }
-    return view('posts', [
-        //'posts' => Post::all()
-        //'posts' => $posts
-        'posts' => $posts->get(), //get => ejecutar
-        'categories' => Category::all()
-    ]);
-})->name('home');
+//})->name('home');
 
 //Route::get('/post/{post}', function ($slug) {   Se cambia id por slug
 //Route::get('/post/{post}', function ($id) {
