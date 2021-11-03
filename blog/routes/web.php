@@ -95,7 +95,8 @@ Route::get('/', function () {
     if (request('search')){
         //agregar las condiciones de búsqueda
         //select * from posts where title like '%algo%'
-        $posts->where('title', 'like', '%' . request('search') . '%');
+        $posts->where('title', 'like', '%' . request('search') . '%')
+              ->orwhere('resumen', 'like', '%' . request('search') . '%');
 
     }
     return view('posts', [
