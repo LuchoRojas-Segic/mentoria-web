@@ -96,13 +96,7 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 
 //Route::get('/post/{post}', function ($slug) {   Se cambia id por slug
 //Route::get('/post/{post}', function ($id) {
-Route::get('/post/{post}', function (Post $post) {
-    return view('post', [
-        //'post' => Post::findOrFail($id),
-        'post' => $post,
-    ]);
-//})->where ('post','[A-Za-z\-_]+'); //Constrains con expresiones regulares
-}); //Ya no va lo anterior ya que se contrala por id
+Route::get('/post/{post}', [PostController::class, 'show']); 
 
 //Route::get('/', fn () => view('welcome'));
 //Route::get('/', fn () => 'Hola SEGIC');

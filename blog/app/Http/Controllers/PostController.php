@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Post;
-use App\Models\Category;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -25,6 +25,13 @@ class PostController extends Controller
         //'posts' => $posts
         'posts' => $posts->get(), //get => ejecutar
         'categories' => Category::all()
+        ]);
+    }
+    public function show(Post $post)
+    {
+        return view('post', [
+            //'post' => Post::findOrFail($id),
+            'post' => $post,
         ]);
     }
 
