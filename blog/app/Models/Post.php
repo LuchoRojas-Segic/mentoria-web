@@ -12,6 +12,7 @@ class Post extends Model
 
     //public $fillable = ['title', 'resumen', 'body'];
     public $guarded = ['id']; //al menos debe tener el id
+    public $with = ['category','author'];
 
     //Esta en la 2da forma de llamar a un slug, y se quita en la Route
     //Route::get('/post/{post}'
