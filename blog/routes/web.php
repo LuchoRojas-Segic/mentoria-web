@@ -89,12 +89,19 @@ Route::get('/', function () {
                 });*/
 
     //$posts = Post::all();
+    $posts = Post::latest('published_at') //Ordenamiento
+                ->with(['category','author']);
+
+    if (request('search')){
+        //agregar las condiciones de búsqueda
+        //select * from posts where title like '%algo%'
+        $posts->where('title', 'like', '%' . request('search') . '%');
+
+    }
     return view('posts', [
         //'posts' => Post::all()
         //'posts' => $posts
-        'posts' => Post::latest('published_at') //Ordenamiento
-            ->with(['category','author'])
-            ->get(),
+        'posts' => $posts->get(), //get => ejecutar
         'categories' => Category::all()
     ]);
 })->name('home');
