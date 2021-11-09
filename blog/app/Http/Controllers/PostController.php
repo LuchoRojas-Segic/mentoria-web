@@ -14,7 +14,7 @@ class PostController extends Controller
         //'posts' => Post::all()
         //'posts' => $posts
             'posts' => Post::latest('published_at') //Ordenamiento
-            ->filter(request(['search']))
+            ->filter(request(['search', 'category']))
             ->get(), //get => ejecutar
             'categories' => Category::all()
         ]);
