@@ -103,14 +103,14 @@ Route::get('/post/{post}', [PostController::class, 'show']);
 //Lo siguiente entregará un JSON
 //Route::get('/', fn () => ['id' => 7, 'url' => 'http://www.segic.cl']);
 
-Route::get('/category/{category:slug}', function (Category $category) {
+/*Route::get('/category/{category:slug}', function (Category $category) {
     //return 'categorias';
     return view('posts', [
         'posts' => $category->posts->load(['category', 'author']),
         'categories' => Category::all(),
         'currentCategory' => $category,
     ]);
-});
+});*/
 
 Route::get('/author/{author}', function (User $author) {
     //ddd($author->posts);
