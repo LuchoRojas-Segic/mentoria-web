@@ -13,7 +13,7 @@ class PostController extends Controller
         return Post::latest('published_at') //Ordenamiento
         ->filter(request(['search', 'category']))
         //->get();
-        ->paginate();
+        ->paginate(5);
 
         /*return view('posts', [
         //'posts' => Post::all()
