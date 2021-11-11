@@ -10,7 +10,11 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts', [
+        return Post::latest('published_at') //Ordenamiento
+        ->filter(request(['search', 'category']))
+        ->get();
+
+        /*return view('posts', [
         //'posts' => Post::all()
         //'posts' => $posts
             'posts' => Post::latest('published_at') //Ordenamiento
@@ -19,7 +23,7 @@ class PostController extends Controller
             'categories' => Category::all(),
             'currentCategory' => 
                 request('category') !== null ? Category::where('slug', request('category'))->first() : null,
-        ]);
+        ]);*/
     }
     public function show(Post $post)
     {
